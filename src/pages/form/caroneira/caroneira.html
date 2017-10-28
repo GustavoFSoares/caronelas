@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Cadastro Caroneira</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <form (ngSubmit)=cadastra()>
+        <ion-card>
+            <ion-card-content>
+                <ion-item-divider color='light'> Dados Pessoais </ion-item-divider>
+
+                <ion-item>
+                    <ion-label floating>Nome</ion-label>
+                    <ion-input [(ngModel)]="usuario.nome" name="nome" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Telefone</ion-label>
+                    <ion-input [(ngModel)]="usuario.telefone" name="telefone" type="tel"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>CPF</ion-label>
+                    <ion-input [(ngModel)]="usuario.cpf" name="cpf" type="tel"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>E-mail</ion-label>
+                    <ion-input [(ngModel)]="usuario.email" name="email" type="email"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Data de Nascimento</ion-label>
+                    <ion-datetime [(ngModel)]="usuario.nascimento" name="nascimento" displayFormat="DD/MM/YYYY"></ion-datetime>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Sexo</ion-label>
+                    <ion-select [(ngModel)]="usuario.sexo" name="sexo">
+                        <ion-option value="mulher">Mulher</ion-option>
+                        <ion-option value="homem">Homem</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <button ion-button block type="submit">Cadastrar</button>
+    </form>
+</ion-content>

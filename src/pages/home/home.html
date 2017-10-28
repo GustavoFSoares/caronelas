@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            Escolha Usuário
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-content center>
+            <ion-item-group (click)="selecionarTipo('motorista')">
+                <ion-icon ios="ios-car" md="md-car"></ion-icon>
+            </ion-item-group>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content center>
+            <ion-item-group (click)="selecionarTipo('caroneira')">
+                <ion-icon ios="ios-woman" md="md-woman"></ion-icon>
+            </ion-item-group>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
