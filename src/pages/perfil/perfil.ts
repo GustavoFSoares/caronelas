@@ -16,11 +16,11 @@ export class PerfilPage {
 
     constructor(
         public navCtrl: NavController,
-        private authService: AuthService,
-        private afAuth: AngularFireAuth
+        private _authService: AuthService,
+        private _afAuth: AngularFireAuth
     ) {
 
-        const authObserver = afAuth.authState.subscribe(user => {
+        const authObserver = _afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
             
@@ -33,7 +33,7 @@ export class PerfilPage {
     }
 
     public signOut() {
-        this.authService.signOut()
+        this._authService.signOut()
             .then(() => {
                 this.navCtrl.parent.parent.setRoot(LoginPage);
             }).catch((error) => {

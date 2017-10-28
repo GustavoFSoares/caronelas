@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, Alert } from 'ionic-angular';
 
 import { Usuario } from "../../../domain/usuario/usuario";
-import { FormService } from "../../../domain/form/form-service";
+// import { FormService } from "../../../domain/form/form-service";
 
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 @IonicPage()

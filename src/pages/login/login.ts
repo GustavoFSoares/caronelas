@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { NavController, ToastController } from 'ionic-angular';
 
-import { HomePage } from "../home/home";
+// import { HomePage } from "../home/home";
 import { PerfilPage } from "../perfil/perfil";
 import { AuthService } from "../../app/provider/auth/auth.service";
 
