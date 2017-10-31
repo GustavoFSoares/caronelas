@@ -14,6 +14,7 @@ export class PerfilPage {
     displayName: string;
     imgUrl: string;
 
+    public info: object = {};
     constructor(
         public navCtrl: NavController,
         private _authService: AuthService,
@@ -37,5 +38,13 @@ export class PerfilPage {
             .then(() => {
                 this.navCtrl.setRoot(LoginPage)
             });
+    }
+
+    capturarDados(){
+        return this._authService.dadosFacebook()
+            .then((res) => {
+                this.info = res;
+            });
+        
     }
 }
