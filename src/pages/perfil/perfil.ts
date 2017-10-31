@@ -21,7 +21,7 @@ export class PerfilPage {
         private _afAuth: AngularFireAuth
     ) {
 
-        const authObserver = _afAuth.authState.subscribe(user => {
+        const authObserver = this._afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
             

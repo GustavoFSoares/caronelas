@@ -14,9 +14,8 @@ export class AuthService {
                 //this.facebook.api() paga pegar mais dados
                 return this._angularFireAuth.auth.signInWithCredential(
                     firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
-                )
-            }, err => {
-                console.log(err);
+                )}, err => {
+                    console.log(err);
             });
     }
 
