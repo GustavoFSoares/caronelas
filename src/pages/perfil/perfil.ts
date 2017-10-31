@@ -32,12 +32,10 @@ export class PerfilPage {
         });
     }
 
-    public signOut() {
-        this._authService.signOut()
+    signOut() {       
+        return this._authService.signOut()
             .then(() => {
-                this.navCtrl.parent.parent.setRoot(LoginPage);
-            }).catch((error) => {
-                console.error(error);
+                this.navCtrl.setRoot(LoginPage)
             });
     }
 }
