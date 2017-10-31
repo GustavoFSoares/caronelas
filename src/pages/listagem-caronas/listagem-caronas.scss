@@ -1,3 +1,26 @@
-page-listagem-caronas {
-
+page-listagem-caronas{
+    #nome {
+        font-size: 100%;
+        color: #000000;
+        text-align: left;
+    }
+    #idade {
+        font-size: 80%;
+        color: #000000;
+        text-align: left;
+    }
+    #rota {
+        font-size: 80%;
+        color: #000000;
+        text-align: left;
+    }
+    #data {
+        font-size: 80%;
+        color: #000000;
+        text-orientation: right;
+    }
+    #foto {
+        height: 65px;
+        width: 65px;
+    }
 }
