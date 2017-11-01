@@ -15,6 +15,7 @@ import { PerfilPage } from "../pages/perfil/perfil";
 import { ListagemCaronasPage } from "../pages/listagem-caronas/listagem-caronas";
 import { FormCaroneira } from "../pages/form/caroneira/caroneira";
 import { FormMotorista } from "../pages/form/motorista/motorista";
+import { MapsPage } from "../pages/maps/maps";
 
 //---------------Ionic------------------------------
 import { StatusBar } from '@ionic-native/status-bar';
@@ -54,6 +55,7 @@ var firebaseConfig = {
         PerfilPage, 
         FormCaroneira,
         FormMotorista,
+        MapsPage,
     ],
     imports: [BrowserModule,
          IonicModule.forRoot(MyApp),
@@ -73,6 +75,7 @@ var firebaseConfig = {
         PerfilPage,
         FormCaroneira,
         FormMotorista,
+        MapsPage,
     ],
     providers: [StatusBar, 
         SplashScreen, 
