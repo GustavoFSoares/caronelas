@@ -14,13 +14,14 @@ export class PerfilPage {
     displayName: string;
     imgUrl: string;
 
+    public info: object = {};
     constructor(
         public navCtrl: NavController,
         private _authService: AuthService,
         private _afAuth: AngularFireAuth
     ) {
 
-        const authObserver = _afAuth.authState.subscribe(user => {
+        const authObserver = this._afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
             
@@ -32,12 +33,18 @@ export class PerfilPage {
         });
     }
 
-    public signOut() {
-        this._authService.signOut()
+    signOut() {       
+        return this._authService.signOut()
             .then(() => {
-                this.navCtrl.parent.parent.setRoot(LoginPage);
-            }).catch((error) => {
-                console.error(error);
+                this.navCtrl.setRoot(LoginPage)
             });
+    }
+
+    capturarDados(){
+        return this._authService.dadosFacebook()
+            .then((res) => {
+                this.info = res;
+            });
+        
     }
 }

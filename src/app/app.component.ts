@@ -12,8 +12,8 @@ import { MapsPage } from "../pages/maps/maps";
     templateUrl: 'app.html'
 })
 export class MyApp {
+
     rootPage:any = MapsPage;
-    // rootPage:any = TabsPage;
     // rootPage:any = LoginPage;
     // rootPage:any = HomePage;
 
