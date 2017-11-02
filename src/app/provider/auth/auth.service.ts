@@ -13,7 +13,7 @@ export class AuthService {
             .then((res: FacebookLoginResponse) => {
                 //this.facebook.api() paga pegar mais dados
                 return this._angularFireAuth.auth.signInWithCredential(
-                    firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
+                    firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)                  // firebase.auth.FacebookAuthProvider.credential
                 )}, err => {
                     console.log(err);
             });
@@ -29,12 +29,12 @@ export class AuthService {
     }
 
     dadosFacebook(){
-        return this._facebook.api('/me', ["user_about_me"])
-            .then((res: any) => {
-                console.log(res);
-                return res;
-            }, err => {
-                console.log(err); 
-            });   
-    }
+    //     return this._facebook.api('/me', ["public_profile", "user_about_me"])
+    //         .then((res: any) => {
+    //             console.log(res);
+    //             return res;
+    //         }, err => {
+    //             console.log(err); 
+    //         });   
+    // }
 }

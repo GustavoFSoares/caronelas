@@ -30,6 +30,13 @@ export class PerfilPage {
                 this.imgUrl = user.photoURL;
                 authObserver.unsubscribe();
             }
+            this.info = user;
+            
+            return user.getToken()
+                .then((resp) => {
+                    alert(JSON.stringify(resp))
+                    alert(resp)
+                });
         });
     }
 
@@ -41,10 +48,12 @@ export class PerfilPage {
     }
 
     capturarDados(){
-        return this._authService.dadosFacebook()
-            .then((res) => {
-                this.info = res;
-            });
+        // return this._authService.dadosFacebook()
+        //     .then((res) => {
+        //         this.info = res;
+        //         alert(JSON.stringify(res))
+        //     });
         
     }
+
 }

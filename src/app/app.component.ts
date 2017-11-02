@@ -13,7 +13,8 @@ import { MapsPage } from "../pages/maps/maps";
 })
 export class MyApp {
 
-    rootPage:any = MapsPage;
+    rootPage:any = TabsPage;
+    // rootPage:any = MapsPage;
     // rootPage:any = LoginPage;
     // rootPage:any = HomePage;
 
