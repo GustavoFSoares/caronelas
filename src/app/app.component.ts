@@ -6,17 +6,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
-import { MapsPage } from "../pages/maps/maps";
-import { PerfilPage } from "../pages/perfil/perfil";
+
+import { DetalheCaronaPage } from "../pages/detalhe-carona/detalhe-carona";
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
 
-    rootPage:any = PerfilPage;
+    rootPage: any = DetalheCaronaPage;
+
     // rootPage:any = TabsPage;
-    // rootPage:any = MapsPage;
     // rootPage:any = LoginPage;
     // rootPage:any = HomePage;
 

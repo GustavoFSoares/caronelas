@@ -10,7 +10,7 @@ import { LoginPage } from '../login/login';
     selector: 'page-perfil',
     templateUrl: 'perfil.html',
 })
-export class PerfilPage {
+export class PerfilPage {  
     displayName: string;
     imgUrl: string;
 
@@ -20,7 +20,6 @@ export class PerfilPage {
         private _authService: AuthService,
         private _afAuth: AngularFireAuth
     ) {
-
         const authObserver = this._afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
@@ -30,7 +29,6 @@ export class PerfilPage {
                 this.imgUrl = user.photoURL;
                 authObserver.unsubscribe();
             }
-            // this.info = user;
         });
     }
 
@@ -44,5 +42,3 @@ export class PerfilPage {
     }
 
 }
-
-//{_isScalar:false,""source":{"isScalar":false},"operator":{}}
