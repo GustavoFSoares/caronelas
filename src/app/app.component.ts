@@ -7,13 +7,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
 import { MapsPage } from "../pages/maps/maps";
+import { PerfilPage } from "../pages/perfil/perfil";
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
 
-    rootPage:any = TabsPage;
+    rootPage:any = PerfilPage;
+    // rootPage:any = TabsPage;
     // rootPage:any = MapsPage;
     // rootPage:any = LoginPage;
     // rootPage:any = HomePage;

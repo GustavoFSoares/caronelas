@@ -4,6 +4,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/toPromise";
 
 //---------------PAGES------------------------------
 import { AboutPage } from '../pages/about/about';
@@ -57,12 +59,14 @@ var firebaseConfig = {
         FormMotorista,
         MapsPage,
     ],
-    imports: [BrowserModule,
-         IonicModule.forRoot(MyApp),
-         AngularFireModule.initializeApp(firebaseConfig),
-         AngularFireAuthModule,
-         AngularFireDatabaseModule,
-         HttpModule],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        HttpModule
+    ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
@@ -77,11 +81,13 @@ var firebaseConfig = {
         FormMotorista,
         MapsPage,
     ],
-    providers: [StatusBar, 
+    providers: [
+        StatusBar, 
         SplashScreen, 
         { provide: ErrorHandler, useClass: IonicErrorHandler }, 
         AuthService, 
         Facebook, 
-        FormService,]
+        FormService,
+    ]
 })
 export class AppModule {}

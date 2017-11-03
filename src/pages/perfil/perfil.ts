@@ -30,30 +30,19 @@ export class PerfilPage {
                 this.imgUrl = user.photoURL;
                 authObserver.unsubscribe();
             }
-            this.info = user;
-            
-            return user.getToken()
-                .then((resp) => {
-                    alert(JSON.stringify(resp))
-                    alert(resp)
-                });
+            // this.info = user;
         });
     }
 
     signOut() {       
         return this._authService.signOut()
-            .then(() => {
-                this.navCtrl.setRoot(LoginPage)
-            });
+            .then( () => this.navCtrl.setRoot(LoginPage) );
     }
 
-    capturarDados(){
-        // return this._authService.dadosFacebook()
-        //     .then((res) => {
-        //         this.info = res;
-        //         alert(JSON.stringify(res))
-        //     });
-        
+    usuarioLogado(){
+        alert(JSON.stringify(this._authService.buscarDadosUsuario));
     }
 
 }
+
+//{_isScalar:false,""source":{"isScalar":false},"operator":{}}
