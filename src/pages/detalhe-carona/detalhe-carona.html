@@ -1,12 +1,63 @@
 <ion-header>
-
-    <ion-navbar>
-        <ion-title>detalhe-carona</ion-title>
-    </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+        <ion-navbar>
+            <ion-title>detalhe-carona</ion-title>
+        </ion-navbar>
+    </ion-header>
+    
+    <ion-content >
+        <ion-card>
+            <ion-item class="item item-block itemios">
+                <table>
+                    <tr>
+                        <td>
+                            <ion-avatar item-start="">
+                                <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
+                            </ion-avatar>
+                        </td>
+                        <td>
+                            <tr>
+                                <td> <h2 id="nome">Fernando Pessoa</h2> </td> 
+                            </tr>
+                            <tr>
+                                <td> <h2 id="idade">129 anos</h2> </td>
+                            </tr>
+                        </td>
+                    </tr>                    
+                </table>
+                <table>
+                    <tr>
+                        <h2 id="origem">Origem: </h2>
+                    </tr>
+                    <tr>
+                        <h2 id="destino">Destino: </h2>
+                    </tr> 
+                    <tr>
+                        <h2 id="quantidade">Corridas realizadas: </h2>
+                    </tr>
+                    <tr>
+                        
+                        <button ion-button round id="avaliações">
+                            Avaliações Anteriores
+                        </button>
+                        
+                    </tr>    
+                    <tr>
+                        <rating 
+                            readOnly="false" 
+                            max="5" 
+                            emptyStarIconName="star-outline" 
+                            halfStarIconName="star-half" 
+                            starIconName="star" 
+                            nullable="false"
+                            id="rating"
+                        >
+                        </rating>
+                    </tr>
+                </table>
+            </ion-item>
+        </ion-card>
+        <button ion-button full color="secondary" id="bt_solicitar">                    
+                Solicitas
+        </button>
+    
+    </ion-content>
