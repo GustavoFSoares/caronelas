@@ -5,6 +5,7 @@ export class Usuario
 {
 
     constructor(
+        public $key: string = "",
         public nome: string = "",
         public telefone: string = "",
         public cpf: string = "",

@@ -4,7 +4,7 @@ import { NavController, ToastController } from 'ionic-angular';
 
 // import { HomePage } from "../home/home";
 import { PerfilPage } from "../perfil/perfil";
-import { AuthService } from "../../app/provider/auth/auth.service";
+import { AuthService } from "../../provider/auth/auth.service";
 
 @Component({
     selector: 'page-login',

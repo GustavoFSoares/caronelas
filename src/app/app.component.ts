@@ -7,16 +7,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
 
-import { DetalheCaronaPage } from "../pages/detalhe-carona/detalhe-carona";
-
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
 
-    rootPage: any = DetalheCaronaPage;
-
-    // rootPage:any = TabsPage;
+    rootPage:any = TabsPage;
     // rootPage:any = LoginPage;
     // rootPage:any = HomePage;
 

@@ -1,26 +1,35 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, Alert } from 'ionic-angular';
+import { NgForm } from "@angular/forms";
+import { AngularFireList } from "angularfire2/database";
+import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 
-import { Usuario } from "../../../domain/usuario/usuario";
+import { Caroneira } from "../../../domain/usuario/caroneira";
+import { UsuarioService } from "../../../provider/dao/usuario-service";
 // import { FormService } from "../../../domain/form/form-service";
-
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
+
 @IonicPage()
 @Component({
-  selector: 'page-caroneira',
-  templateUrl: 'caroneira.html',
+    selector: 'page-caroneira',
+    templateUrl: 'caroneira.html',
 })
 export class FormCaroneira 
 {
-    public usuario: Usuario;
+    public caroneira: AngularFireList<Caroneira>
+    public key: string;
     private _alert: Alert;
 
     constructor(
         public navCtrl: NavController,
+        public navParams: NavParams,
         public alertCtrl: AlertController,
+        private _caroneiraService: UsuarioService,
     ) {
-        this.usuario = new Usuario();
-
+        this.key = "";
+        if(this.navParams.data.caroneira){
+            this.key = "123";
+        }
+        
         this._alert = this.alertCtrl.create({
             title: "Aviso!",
             subTitle: "Tem certeza que deseja fazer isso?",
@@ -32,12 +41,26 @@ export class FormCaroneira
         });
     }
 
-    cadastra() {
-        if (this.usuario.sexo == "homem") {
+    ngOnInit(){
+        let x = this._caroneiraService.getData();
+        x.snapshotChanges().subscribe(user => {
+            let usuario = [];
+            user.forEach(element => {
+                let y = element.payload.toJSON();
+                y['$key'] = element.key;
+                usuario.push(y as Caroneira);
+            });
+            console.log(usuario);
+            
+        })
+    }
+
+    cadastrar(form: NgForm) {
+        if (form.value.sexo == "homem") {
             this._alert.present();
         }
-        this.navCtrl.push(ListagemCaronasPage);
-        console.log(this.usuario);
+        this._caroneiraService.save(form.value);   
+        // this.navCtrl.push(ListagemCaronasPage);
     }
 
 }

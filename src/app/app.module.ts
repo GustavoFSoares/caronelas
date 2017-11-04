@@ -32,7 +32,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 //-----------Services-------------------------------
-import { AuthService } from "./provider/auth/auth.service";
+import { AuthService } from "../provider/auth/auth.service";
+import { UsuarioService } from "../provider/dao/usuario-service";
 import { FormService } from "../domain/form/form-service";
 
 var firebaseConfig = {
@@ -91,6 +92,7 @@ var firebaseConfig = {
         AuthService, 
         Facebook, 
         FormService,
+        UsuarioService,
     ]
 })
 export class AppModule {}

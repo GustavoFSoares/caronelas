@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
-import { AuthService } from '../../app/provider/auth/auth.service';
+import { AuthService } from '../../provider/auth/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
 
@@ -34,7 +34,7 @@ export class PerfilPage {
 
     signOut() {       
         return this._authService.signOut()
-            .then( () => this.navCtrl.setRoot(LoginPage) );
+            .then( () => this.navCtrl.parent.setRoot(LoginPage) );
     }
 
     usuarioLogado(){
