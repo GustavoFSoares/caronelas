@@ -5,8 +5,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { Caroneira } from "../../domain/usuario/caroneira";
 
 @Injectable()
-export class UsuarioService {
-    
+export class CaroneiraFormService {
     public usuario: AngularFireList<any>;
     public caroneira: Caroneira = new Caroneira();
 
@@ -21,7 +20,7 @@ export class UsuarioService {
     }
 
     save(caroneira){
-        if(caroneira.key == ''){
+        if(caroneira.key == ""){
             this._insert(caroneira);
         } else {
             this._update(caroneira);

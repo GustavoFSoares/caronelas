@@ -4,10 +4,9 @@ import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 
 import { Caroneira } from "../../../domain/usuario/caroneira";
-import { UsuarioService } from "../../../provider/dao/usuario-service";
-// import { FormService } from "../../../domain/form/form-service";
-import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
+import { CaroneiraFormService } from "../../../provider/dao/caroneira-service";
 
+import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 @IonicPage()
 @Component({
     selector: 'page-caroneira',
@@ -22,7 +21,7 @@ export class FormCaroneira
         public navCtrl: NavController,
         public navParams: NavParams,
         public alertCtrl: AlertController,
-        private _caroneiraService: UsuarioService,
+        private _caroneiraService: CaroneiraFormService,
     ) {        
         this._alert = this.alertCtrl.create({
             title: "Aviso!",
@@ -53,8 +52,19 @@ export class FormCaroneira
         if (form.value.sexo == "homem") {
             this._alert.present();
         }
-        this._caroneiraService.save(form.value);   
-        // this.navCtrl.push(ListagemCaronasPage);
+
+        let caroneira = {
+            "cpf": form.value.cpf,
+            "email": form.value.email,
+            "key": form.value.key,
+            "nascimento": form.value.nascimento,
+            "nome": form.value.nome,
+            "sexo": form.value.sexo,
+            "telefone": form.value.telefone,
+        }
+
+        this._caroneiraService.save(caroneira);   
+        this.navCtrl.push(ListagemCaronasPage);
     }
 
 }

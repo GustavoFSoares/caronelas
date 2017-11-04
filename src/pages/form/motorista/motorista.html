@@ -7,38 +7,40 @@
 
 <ion-content padding>
 
-    <form (ngSubmit)="cadastrar()">
+    <form #FormMotorista="ngForm" (ngSubmit)=cadastrar(FormMotorista)>
         <ion-card>
             <ion-card-content>
                 <ion-item-divider color='light'>Dados Pessoais</ion-item-divider>
-
+                
+                <input [(ngModel)]="_motoristaService.motorista.tem_cnh" name="tem_cnh" type="hidden">
+                <input [(ngModel)]="_motoristaService.motorista.key" name="key" type="hidden">
                 <ion-item>
                     <ion-label floating>Nome</ion-label>
-                    <ion-input [(ngModel)]="usuario.nome" name="nome" type="text"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.motorista.nome" name="nome" type="text"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Telefone</ion-label>
-                    <ion-input [(ngModel)]="usuario.telefone" name="telefone" type="tel"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.motorista.telefone" name="telefone" type="tel"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Cpf</ion-label>
-                    <ion-input [(ngModel)]="usuario.cpf" name="cpf" type="tel"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.motorista.cpf" name="cpf" type="tel"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Email</ion-label>
-                    <ion-input [(ngModel)]="usuario.email" name="email" type="email"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.motorista.email" name="email" type="email"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label floating>Data de Nascimento</ion-label>
-                    <ion-datetime [(ngModel)]="usuario.nascimento" name="nascimento" displayFormat="DD/MM/YYYY"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_motoristaService.motorista.nascimento" name="nascimento" displayFormat="DD/MM/YYYY"></ion-datetime>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Sexo</ion-label>
-                    <ion-select [(ngModel)]="usuario.sexo" name="sexo">
+                    <ion-select [(ngModel)]="_motoristaService.motorista.sexo" name="sexo">
                         <ion-option value="mulher">Mulher</ion-option>
                         <ion-option value="homem">Homem</ion-option>
                     </ion-select>
@@ -46,7 +48,7 @@
 
                 <ion-item>
                     <ion-label floating>Cnh</ion-label>P
-                    <ion-input [(ngModel)]="usuario.cnh" name="cnh" type="text"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.motorista.cnh" name="cnh" type="text"></ion-input>
                 </ion-item>
             </ion-card-content>
         </ion-card>
@@ -57,22 +59,22 @@
 
                 <ion-item>
                     <ion-label floating>Placa</ion-label>
-                    <ion-input [(ngModel)]="carro.placa" name="placa" type="text"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.carro.placa" name="placa" type="text"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Ano</ion-label>
-                    <ion-datetime [ngModel]="carro.ano" name="ano" displayFormat="YYYY" min="1980" max="2017"></ion-datetime>
+                    <ion-datetime [ngModel]="_motoristaService.carro.ano" name="ano" displayFormat="YYYY" min="1980" max="2017"></ion-datetime>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Cor</ion-label>
-                    <ion-input [(ngModel)]="carro.cor" name="cor" type="text"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.carro.cor" name="cor" type="text"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>RENAVAN</ion-label>
-                    <ion-input [(ngModel)]="carro.renavan" name="renavan " type="number"></ion-input>
+                    <ion-input [(ngModel)]="_motoristaService.carro.renavan" name="renavan" type="number"></ion-input>
                 </ion-item>
             </ion-card-content>
         </ion-card>
