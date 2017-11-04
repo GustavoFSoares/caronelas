@@ -24,6 +24,8 @@ import { DetalheCaronaPage } from "../pages/detalhe-carona/detalhe-carona";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
+import { Ionic2RatingModule } from 'ionic2-rating';
+
 // import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 //-----------Firebase Modules-----------------------
@@ -68,7 +70,8 @@ var firebaseConfig = {
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireAuthModule,
         AngularFireDatabaseModule,
-        HttpModule
+        HttpModule,
+        Ionic2RatingModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
