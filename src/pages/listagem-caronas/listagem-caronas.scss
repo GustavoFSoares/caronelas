@@ -9,17 +9,20 @@ page-listagem-caronas{
         color: #000000;
         text-align: left;
     }
-    #rota {
+    #lc-destino {
         font-size: 80%;
         color: #000000;
         text-align: left;
     }
-    #data {
+    #lc-origem {
         font-size: 80%;
         color: #000000;
-        text-align: right;
-        margin-left: -13px;
-        
+        text-align: left;
+    }
+    #lc-data {
+        font-size: 80%;
+        color: #000000;
+        padding-left: 110px;
     }
     #foto {
         height: 65px;
