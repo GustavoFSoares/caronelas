@@ -16,7 +16,6 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 export class FormCaroneira 
 {
     public caroneira: AngularFireList<Caroneira>
-    public key: string;
     private _alert: Alert;
 
     constructor(
@@ -24,12 +23,7 @@ export class FormCaroneira
         public navParams: NavParams,
         public alertCtrl: AlertController,
         private _caroneiraService: UsuarioService,
-    ) {
-        this.key = "";
-        if(this.navParams.data.caroneira){
-            this.key = "123";
-        }
-        
+    ) {        
         this._alert = this.alertCtrl.create({
             title: "Aviso!",
             subTitle: "Tem certeza que deseja fazer isso?",
@@ -47,10 +41,10 @@ export class FormCaroneira
             let usuario = [];
             user.forEach(element => {
                 let y = element.payload.toJSON();
-                y['$key'] = element.key;
+                y['key'] = element.key;
                 usuario.push(y as Caroneira);
             });
-            console.log(usuario);
+            // console.log(usuario);
             
         })
     }

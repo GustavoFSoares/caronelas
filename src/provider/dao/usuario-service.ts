@@ -16,13 +16,12 @@ export class UsuarioService {
     ){ }
 
     getData(){
-        this.usuario = this._db.list('caroneira');
+        this.usuario = this._db.list("/caroneira");
         return this.usuario;
     }
 
-
-    save(caroneira: Caroneira){
-        if(caroneira.$key == ''){
+    save(caroneira){
+        if(caroneira.key == ''){
             this._insert(caroneira);
         } else {
             this._update(caroneira);
@@ -30,11 +29,25 @@ export class UsuarioService {
     }
     
     private _insert(caroneira: Caroneira){
-        this.usuario.push({ caroneira: caroneira });
+        this.usuario.push({
+            nome: caroneira.nome,
+            email: caroneira.email,
+            sexo: caroneira.sexo,
+            nascimento: caroneira.nascimento,
+            telefone: caroneira.telefone,
+            cpf: caroneira.cpf
+        });
     }
 
     private _update(caroneira: Caroneira){
-        this.usuario.update(caroneira.$key, { caroneira: caroneira })
+        this.usuario.update(caroneira.key, { 
+            nome: caroneira.nome,
+            email: caroneira.email,
+            sexo: caroneira.sexo,
+            nascimento: caroneira.nascimento,
+            telefone: caroneira.telefone,
+            cpf: caroneira.cpf                        
+        })
     }
 
     remove(key: string){

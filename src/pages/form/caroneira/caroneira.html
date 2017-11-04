@@ -12,6 +12,7 @@
             <ion-card-content>
                 <ion-item-divider color='light'> Dados Pessoais </ion-item-divider>
 
+                <input [(ngModel)]="_caroneiraService.caroneira.key" name="key" type="hidden">
                 <ion-item>
                     <ion-label floating>Nome</ion-label>
                     <ion-input [(ngModel)]="_caroneiraService.caroneira.nome" name="nome" type="text" required></ion-input>
