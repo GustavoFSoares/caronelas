@@ -44,8 +44,7 @@ export class FormCaroneira
                 usuario.push(y as Caroneira);
             });
             // console.log(usuario);
-            
-        })
+        });
     }
 
     cadastrar(form: NgForm) {
@@ -64,7 +63,7 @@ export class FormCaroneira
         }
 
         this._caroneiraService.save(caroneira);   
-        this.navCtrl.push(ListagemCaronasPage);
+        this.navCtrl.setRoot(ListagemCaronasPage);
     }
 
 }

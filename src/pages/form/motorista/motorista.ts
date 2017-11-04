@@ -44,8 +44,7 @@ export class FormMotorista
                 usuario.push(y as Motorista);
             });
             // console.log(usuario);
-
-        })
+        });
     }
 
     cadastrar(form: NgForm) {
@@ -73,6 +72,6 @@ export class FormMotorista
         }
         
         this._motoristaService.save(motorista, carro);
-        this.navCtrl.push(ListagemCaronasPage);
+        this.navCtrl.setRoot(ListagemCaronasPage);
     }
 }

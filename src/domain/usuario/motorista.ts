@@ -3,6 +3,7 @@ import { Usuario } from "./usuario";
 
 @Injectable()
 export class Motorista extends Usuario {
+    
     constructor(
         public cnh: string = "",
         public tem_cnh: boolean = false, 

@@ -14,16 +14,3 @@ export class  Usuario
         public nascimento: string = new Date().toISOString(),
     ){ }
 }
-
-@Injectable()
-export class Carro 
-{
-
-    constructor(
-        public placa: string = "",
-        public ano: string = new Date().toISOString(),
-        public cor: string = "",
-        public renavan: string = "",
-    ){ }
-
-}
