@@ -11,7 +11,9 @@ export class MapsPage {
 
     @ViewChild('map') mapRef:ElementRef;
 
-    constructor(public navParams: NavParams, private _viewCtrl: ViewController) { }
+    constructor(public navParams: NavParams, private _viewCtrl: ViewController) {
+        console.log(navigator.geolocation);
+     }
 
     ngOnInit() {
         this.mostrarMapa();
@@ -46,5 +48,10 @@ export class MapsPage {
     salvarLocal(){
         let local = { lat: '-29.8355189', lon: '-51.1241391' };
         this.fecharModal(local, true);
+    }
+
+    getPosicao(){
+        console.log(navigator.geolocation);
+        
     }
 }

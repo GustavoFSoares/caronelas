@@ -8,5 +8,19 @@
 
 
 <ion-content padding>
-    <button  ion-button block outline (click)="abrirMapa()">APRESENTAR</button>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3>
+                <button ion-button block outline (click)="abrirMapa()">Origem</button>
+            </ion-col>
+            <ion-col col-3 offset-3>
+                <button ion-button block outline (click)="abrirMapa()">
+                    <ion-icon *ngIf="false" color="dark" ios="ios-map" md="md-map"></ion-icon>
+                    <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 </ion-content>

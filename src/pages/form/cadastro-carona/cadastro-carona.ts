@@ -9,6 +9,7 @@ import { MapsPage } from "../../maps/maps";
 })
 export class CadastroCaronaPage {
 
+    // public mapa
     constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) { }
 
     abrirMapa() {
