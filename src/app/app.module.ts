@@ -38,6 +38,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from "../provider/auth/auth.service";
 import { CaroneiraFormService } from "../provider/dao/caroneira-service";
 import { MotoristaFormService } from "../provider/dao/motorista-service";
+import { CaronaService } from "../provider/dao/caronas-service";
 import { FormService } from "../domain/form/form-service";
 
 var firebaseConfig = {
@@ -101,6 +102,7 @@ var firebaseConfig = {
         FormService,
         CaroneiraFormService,
         MotoristaFormService,
+        CaronaService,
     ]
 })
 export class AppModule {}

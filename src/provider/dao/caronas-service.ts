@@ -7,11 +7,11 @@ import { Carona, Trajeto } from "../../domain/carona/carona";
 import { Usuario } from "../../domain/usuario/usuario";
 
 @Injectable()
-export class ListagemCaronaService {
+export class CaronaService {
     public carona: AngularFireList<any>;
     public trajeto: Trajeto;
     public usuario: Usuario;
-    public caroneira: Carona = new Carona(this.usuario, this.trajeto);
+    public caroneira: Carona = new Carona('', [''],'', this.trajeto);
 
     constructor(
         private _db: AngularFireDatabase,
