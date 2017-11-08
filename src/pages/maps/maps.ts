@@ -1,17 +1,50 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
+declare var google: any;
 @IonicPage()
 @Component({
-    selector: 'page-maps',
+    selector: 'map',
     templateUrl: 'maps.html',
 })
 export class MapsPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) { }
+    @ViewChild('map') mapRef:ElementRef;
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad MapsPage');
+    constructor(public navParams: NavParams, private _viewCtrl: ViewController) { }
+
+    ngOnInit() {
+        this.mostrarMapa();
     }
 
+    fecharModal(local?, salvo = false){
+        this._viewCtrl.dismiss({local, salvo});
+    }
+
+    mostrarMapa(){
+        const location = new google.maps.LatLng('-29.8355189', '-51.1241391');
+
+        const options = {
+            center:location,
+            zoom:17,
+            streetViewControl:false,
+            mapTypeId:'roadmap',
+        };
+
+        const map = new google.maps.Map(this.mapRef.nativeElement, options);
+
+        this.adicionarMarcador(location, map);
+    }
+
+    adicionarMarcador(position, map){
+        return new google.maps.Marker({
+            position, 
+            map
+        });
+    }
+
+    salvarLocal(){
+        let local = { lat: '-29.8355189', lon: '-51.1241391' };
+        this.fecharModal(local, true);
+    }
 }

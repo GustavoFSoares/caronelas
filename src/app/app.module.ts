@@ -19,7 +19,8 @@ import { FormCaroneira } from "../pages/form/caroneira/caroneira";
 import { FormMotorista } from "../pages/form/motorista/motorista";
 import { MapsPage } from "../pages/maps/maps";
 import { DetalheCaronaPage } from "../pages/detalhe-carona/detalhe-carona";
-import { AvaliacaoCaronaPage } from "../pages/avaliacao-carona/avaliacao-carona";
+import { AvaliacaoCaronaPage } from "../pages/form/avaliacao-carona/avaliacao-carona";
+import { CadastroCaronaPage } from "../pages/form/cadastro-carona/cadastro-carona";
 
 //---------------Ionic------------------------------
 import { StatusBar } from '@ionic-native/status-bar';
@@ -67,6 +68,7 @@ var firebaseConfig = {
         MapsPage,
         DetalheCaronaPage,
         AvaliacaoCaronaPage,
+        CadastroCaronaPage,
     ],
     imports: [
         BrowserModule,
@@ -92,6 +94,7 @@ var firebaseConfig = {
         MapsPage,
         DetalheCaronaPage,
         AvaliacaoCaronaPage,
+        CadastroCaronaPage,
     ],
     providers: [
         StatusBar, 

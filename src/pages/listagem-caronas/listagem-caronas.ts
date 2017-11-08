@@ -3,7 +3,7 @@ import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 import { Carona } from "../../domain/carona/carona";
-import { ListagemCaronaService } from "../../provider/dao/listagem-caronas-service";
+import { CaronaService } from "../../provider/dao/caronas-service";
 @IonicPage()
 @Component({
     selector: 'page-listagem-caronas',
@@ -14,11 +14,11 @@ export class ListagemCaronasPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private _listagemCaronaService: ListagemCaronaService,
+        private _caronaService: CaronaService,
     ) { }
 
     ngOnInit() {
-        let x = this._listagemCaronaService.getData();
+        let x = this._caronaService.getData();
         x.snapshotChanges().subscribe(user => {
             let carona = [];
             user.forEach(element => {
