@@ -9,18 +9,77 @@
 
 <ion-content padding>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col col-3>
-                <button ion-button block outline (click)="abrirMapa()">Origem</button>
-            </ion-col>
-            <ion-col col-3 offset-3>
-                <button ion-button block outline (click)="abrirMapa()">
-                    <ion-icon *ngIf="false" color="dark" ios="ios-map" md="md-map"></ion-icon>
-                    <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <form #FormCaroneira="ngForm">
+        <ion-card>
+            <ion-card-content>
+                
+                <ion-item-divider color='light'> Origem e Destino da Viagem </ion-item-divider>
+                <ion-grid>
+
+                    <ion-item>
+                        <ion-row>
+                            
+                            <ion-col col-3>
+                                <button ion-button block outline (click)="abrirMapa()">
+                                    <ion-icon *ngIf="true" color="dark" ios="ios-map" md="md-map"></ion-icon>
+                                    <ion-icon *ngIf="false" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                                </button>
+                            </ion-col>
+
+                            <ion-col col-3 offset-3>
+                                <button ion-button block outline (click)="abrirMapa()">
+                                    <ion-icon *ngIf="false" color="dark" ios="ios-map" md="md-map"></ion-icon>
+                                    <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                                </button>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-item>
+
+                </ion-grid>
+
+                <ion-item-divider color='light'> Horário de Saída </ion-item-divider>
+                <!-- <ion-grid>
+                    
+                    <ion-item>
+                        <ion-row>
+
+                            <ion-col col-3>
+                                <ion-item class="batata">
+                                    <ion-label>Data de Nascimento</ion-label>
+                                    <ion-datetime name="nascimento" displayFormat="DD/MM/YYYY"></ion-datetime>
+                                </ion-item>
+                            </ion-col>
+
+                            <ion-col col-3 offset-3>
+                                <button ion-button block outline (click)="abrirMapa()">
+                                    <ion-icon *ngIf="false" color="dark" ios="ios-map" md="md-map"></ion-icon>
+                                    <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                                </button>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-item>
+
+                </ion-grid> -->
+
+        
+                <ion-item>
+                    <ion-label floating>Data de Saída</ion-label>
+                    <ion-datetime name="saida" displayFormat="DD/MM/YYYY HH:M"></ion-datetime>
+                </ion-item>
+        
+                <ion-item-divider color='light'>Tolerância</ion-item-divider>
+                <ion-item>
+                    <ion-label floating>Tempo de Tolerância</ion-label>
+                    <ion-datetime name="saida" displayFormat="HH:M"></ion-datetime>
+                </ion-item>
+
+            </ion-card-content>
+        </ion-card>
+    
+        <button ion-button block type="submit">Cadastrar</button>
+    </form>
+    
 
 </ion-content>
