@@ -6,16 +6,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
-import { CadastroCaronaPage } from "../pages/form/cadastro-carona/cadastro-carona";
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
 
-    rootPage:any = TabsPage;
+    // rootPage:any = TabsPage;
     // rootPage:any = LoginPage;
-    // rootPage: any = CadastroCaronaPage;
+    rootPage: any = HomePage;
 
 
     @ViewChild(Nav)

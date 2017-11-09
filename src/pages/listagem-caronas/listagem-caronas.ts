@@ -4,7 +4,9 @@ import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 import { Carona } from "../../domain/carona/carona";
 import { CaronaService } from "../../provider/dao/caronas-service";
+
 import { CadastroCaronaPage } from "../form/cadastro-carona/cadastro-carona";
+import { DetalheCaronaPage } from "../detalhe-carona/detalhe-carona";
 @IonicPage()
 @Component({
     selector: 'page-listagem-caronas',
@@ -37,5 +39,10 @@ export class ListagemCaronasPage
     adicionarCarona()
     {
         this.navCtrl.push(CadastroCaronaPage);
+    }
+
+    detalharCarona()
+    {
+        this.navCtrl.push(DetalheCaronaPage);
     }
 }
