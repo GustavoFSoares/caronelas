@@ -2,7 +2,7 @@
 
     <ion-navbar>
             <ion-title>Mapa</ion-title>
-            <ion-buttons begin>
+            <ion-buttons end>
                 <button (click)=fecharModal() ion-button class="disable-hover bar-button bar-button-ios bar-button-default bar-button-default-ios">
                     Close
                 </button>
@@ -13,5 +13,5 @@
 
 <ion-content padding>
     <div #map id="my-map"></div>
-    <button (click)="salvarLocal()" ion-button block outline>Salvar</button>
+    <button id="salvar" (click)="salvarLocal()" ion-button block>Salvar</button>
 </ion-content>
