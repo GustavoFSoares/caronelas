@@ -13,14 +13,20 @@ export class FormService {
         this.headers.append('Content-Type', 'application/json');
     }
 
-    public timestampToDate(timestamp = 1508201805){
+    timestampToDate(timestamp = 1508201805){
         let date = new Date(timestamp*1000);
         return date.toLocaleDateString("pt-BR");
     }
 
-    public dateToTimestamp(date = new Date(2017, 10, 16)){
+    dateToTimestamp(date = new Date(2017, 10, 16)){
         let timestamp = date;
         return timestamp.getTime();
+    }
+
+    getIdade(nascimento){
+        let ano = new Date(nascimento).getFullYear();
+        let hoje = new Date().getFullYear();
+        return hoje-ano;
     }
 
 }
