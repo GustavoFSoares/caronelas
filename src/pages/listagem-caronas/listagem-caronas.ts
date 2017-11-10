@@ -53,7 +53,6 @@ export class ListagemCaronasPage
                 });
                 this.motoristas = motorista;
             });
-            
     }
 
     adicionarCarona()
@@ -63,7 +62,7 @@ export class ListagemCaronasPage
 
     detalharCarona(motorista: Motorista)
     {
-        this.navCtrl.push(DetalheCaronaPage, {motorista});
+        this.navCtrl.push(DetalheCaronaPage, { "motorista": motorista });
     }
 
     abrir(){

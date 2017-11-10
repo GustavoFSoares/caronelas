@@ -1,11 +1,11 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>listagem-caronas</ion-title>
+        <ion-title>Caronas Disponíveis</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content >
-    
+
     <ion-item  *ngFor="let motorista of motoristas" (click)="detalharCarona(motorista)" class="item item-block item-ios">
             <ion-avatar item-start="">
                 <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">

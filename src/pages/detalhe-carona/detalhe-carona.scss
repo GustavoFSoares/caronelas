@@ -1,10 +1,18 @@
 page-detalhe-carona {
     #foto{
-        height: 65px;
-        width: 65px;
+        height: 80px;
+        width: 80px;
         // position: absolute;
     }
-    
+    #nome {
+        font-style:italic;
+        font-size: 130%;
+        color: #000000;
+        text-align: left;
+    }
+    rating{
+        font-size: 150%;
+    }
     // tr > td > h2{
     //     position: absolute;
     // }
