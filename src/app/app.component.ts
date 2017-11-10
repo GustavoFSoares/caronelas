@@ -15,7 +15,7 @@ export class MyApp {
 
     // rootPage:any = TabsPage;
     // rootPage:any = LoginPage;
-    rootPage: any = ListagemCaronasPage;
+    rootPage: any = HomePage;
 
 
     @ViewChild(Nav)

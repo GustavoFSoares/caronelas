@@ -10,7 +10,12 @@
     <form #FormCaroneira="ngForm" (ngSubmit)=cadastrar(FormCaroneira)>
         <ion-card>
             <ion-card-content>
-                <ion-item-divider color='light'> Dados Pessoais </ion-item-divider>
+                
+                
+                <ion-item-divider color='light'> 
+                    <ion-icon ios="ios-contact" md="md-contact" item-left></ion-icon>
+                    Dados Pessoais
+                 </ion-item-divider>
 
                 <input [(ngModel)]="_caroneiraService.caroneira.key" name="key" type="hidden">
                 <ion-item>

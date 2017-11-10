@@ -10,8 +10,11 @@
     <form #FormMotorista="ngForm" (ngSubmit)=cadastrar(FormMotorista)>
         <ion-card>
             <ion-card-content>
-                <ion-item-divider color='light'>Dados Pessoais</ion-item-divider>
-                
+                <ion-item-divider color='light'>
+                    <ion-icon ios="ios-contact" md="md-contact" item-left></ion-icon>
+                    Dados Pessoais
+                </ion-item-divider>
+
                 <input [(ngModel)]="_motoristaService.motorista.tem_cnh" name="tem_cnh" type="hidden">
                 <input [(ngModel)]="_motoristaService.motorista.key" name="key" type="hidden">
                 <ion-item>
@@ -55,7 +58,10 @@
 
         <ion-card>
             <ion-card-content>
-                <ion-item-divider color='light'>Dados do Carro</ion-item-divider>
+                <ion-item-divider color='light'>
+                    <ion-icon ios="ios-car" md="md-car" item-left></ion-icon>
+                    Cados do Carro
+                </ion-item-divider>
 
                 <ion-item>
                     <ion-label floating>Placa</ion-label>

@@ -6,30 +6,37 @@
 
 <ion-content >
 
-    <ion-item  *ngFor="let motorista of motoristas" (click)="detalharCarona(motorista)" class="item item-block item-ios">
-            <ion-avatar item-start="">
-                <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
-            </ion-avatar>
-            <table>
-                <tr>
-                    <td> <h2 name="nome" id="nome">{{motorista.nome}}</h2> </td>
-                </tr>
+    <ion-list>
+        <ion-item  *ngFor="let motorista of motoristas" (click)="detalharCarona(motorista)" class="item item-block item-ios">
+                <ion-avatar item-start="">
+                    <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
+                </ion-avatar>
+                <table>
+                    <tr>
+                        <td> <h2 name="nome" id="nome">{{motorista.nome}}</h2> </td>
+                    </tr>
 
-                <tr>
-                    <td> <h2 id="idade">{{motorista.idade}} anos de idade</h2> </td>
-                </tr>
+                    <tr>
+                        <td> <h2 id="idade">{{motorista.idade}} anos de idade</h2> </td>
+                    </tr>
 
-                <tr>
-                    <td> <h2 id="lc-origem">Origem: </h2> </td>
-                </tr>
+                    <tr>
+                        <td> <h2 id="lc-origem">Origem: </h2> </td>
+                    </tr>
 
-                <tr>
-                    <td> <h2 id="lc-destino">Destino: </h2> </td>
-                </tr>
-                <tr>
-                    <td> <h2 id="lc-data">29/11 às 10:15</h2> </td>
-                </tr>
-            </table>
+                    <tr>
+                        <td> <h2 id="lc-destino">Destino: </h2> </td>
+                    </tr>
+                    <tr>
+                        <td> <h2 id="lc-data">29/11 às 10:15</h2> </td>
+                    </tr>
+                </table>
+        </ion-item>
+    </ion-list>
+
+    <ion-item *ngIf="false">
+        <p>Não existe caronas disponíveis na sua região ou sua região não está cadastrada</p>
+
     </ion-item>
 
     <ion-fab id="botao-adicionar" middle right end>
