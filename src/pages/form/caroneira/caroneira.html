@@ -18,6 +18,7 @@
                  </ion-item-divider>
 
                 <input [(ngModel)]="_caroneiraService.caroneira.key" name="key" type="hidden">
+                <input [(ngModel)]="_caroneiraService.caroneira.tipo" name="tipo" type="hidden">
                 <ion-item>
                     <ion-label floating>Nome</ion-label>
                     <ion-input [(ngModel)]="_caroneiraService.caroneira.nome" name="nome" type="text" required></ion-input>
@@ -25,7 +26,7 @@
 
                 <ion-item>
                     <ion-label floating>Telefone</ion-label>
-                    <ion-input [(ngModel)]="_caroneiraService.caroneira.telefone" name="telefone" type="tel"></ion-input>
+                    <ion-input [(ngModel)]="_caroneiraService.caroneira.telefone" name="telefone" value="123" type="tel"></ion-input>
                 </ion-item>
 
                 <ion-item>
@@ -43,13 +44,6 @@
                     <ion-datetime [(ngModel)]="_caroneiraService.caroneira.nascimento" name="nascimento" displayFormat="DD/MM/YYYY"></ion-datetime>
                 </ion-item>
 
-                <ion-item>
-                    <ion-label>Sexo</ion-label>
-                    <ion-select popover [(ngModel)]="_caroneiraService.caroneira.sexo" interface="popover" name="sexo">
-                        <ion-option value="mulher">Mulher</ion-option>
-                        <ion-option value="homem">Homem</ion-option>
-                    </ion-select>
-                </ion-item>
             </ion-card-content>
         </ion-card>
 

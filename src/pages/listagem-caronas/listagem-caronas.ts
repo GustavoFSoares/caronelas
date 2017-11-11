@@ -3,7 +3,8 @@ import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 import { Carona } from "../../domain/carona/carona";
-import { Motorista, Carro } from "../../domain/usuario/motorista";
+import { Carro } from "../../domain/usuario/condutor";
+import { Usuario } from "../../domain/usuario/usuario";
 
 import { FormService } from "../../domain/form/form-service";
 import { CaronaService } from "../../provider/dao/caronas-service";
@@ -18,7 +19,8 @@ import { DetalheCaronaPage } from "../detalhe-carona/detalhe-carona";
 })
 export class ListagemCaronasPage 
 {
-    public motoristas: Motorista[] = [];
+    public motoristas: Usuario[] = [];
+    public usuario: Usuario;
     // public carro: Carro;
     constructor(
         public navCtrl: NavController,
@@ -26,7 +28,17 @@ export class ListagemCaronasPage
         private _caronaService: CaronaService,
         private _motoristaService: MotoristaFormService,
         public formService: FormService,
-    ) { }
+    ) {
+        if (this.usuario == undefined) {            
+            let usuario: Usuario;
+            if (this.navParams.get('caroneira') != undefined) {
+                usuario = this.navParams.get('caroneira');
+            } else {
+                usuario = this.navParams.get('condutora');
+            }
+            this.usuario = usuario;
+        }
+     }
 
     ngOnInit() 
     {
@@ -49,7 +61,7 @@ export class ListagemCaronasPage
                     y['key'] = element.key;
                     y['idade'] = this.formService.getIdade(y['nascimento']);
 
-                    motorista.push(y as Motorista);
+                    motorista.push(y as Usuario);
                 });
                 this.motoristas = motorista;
             });
@@ -60,7 +72,7 @@ export class ListagemCaronasPage
         this.navCtrl.push(CadastroCaronaPage);
     }
 
-    detalharCarona(motorista: Motorista)
+    detalharCarona(motorista: Usuario)
     {
         this.navCtrl.push(DetalheCaronaPage, { "motorista": motorista });
     }
@@ -68,4 +80,5 @@ export class ListagemCaronasPage
     abrir(){
         alert(JSON.stringify(this.motoristas));
     }
+
 }

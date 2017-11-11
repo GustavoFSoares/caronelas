@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>form.motorista</ion-title>
+        <ion-title>Cadastro Motorista</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -15,6 +15,7 @@
                     Dados Pessoais
                 </ion-item-divider>
 
+                <input [(ngModel)]="_motoristaService.motorista.tipo" name="tipo" type="hidden">
                 <input [(ngModel)]="_motoristaService.motorista.tem_cnh" name="tem_cnh" type="hidden">
                 <input [(ngModel)]="_motoristaService.motorista.key" name="key" type="hidden">
                 <ion-item>
@@ -42,14 +43,6 @@
                 </ion-item>
 
                 <ion-item>
-                    <ion-label floating>Sexo</ion-label>
-                    <ion-select [(ngModel)]="_motoristaService.motorista.sexo" name="sexo">
-                        <ion-option value="mulher">Mulher</ion-option>
-                        <ion-option value="homem">Homem</ion-option>
-                    </ion-select>
-                </ion-item>
-
-                <ion-item>
                     <ion-label floating>Cnh</ion-label>P
                     <ion-input [(ngModel)]="_motoristaService.motorista.cnh" name="cnh" type="text"></ion-input>
                 </ion-item>
@@ -62,6 +55,16 @@
                     <ion-icon ios="ios-car" md="md-car" item-left></ion-icon>
                     Cados do Carro
                 </ion-item-divider>
+
+                <ion-item>
+                    <ion-label floating>Marca</ion-label>
+                    <ion-input [(ngModel)]="_motoristaService.carro.marca" name="marca" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Modelo</ion-label>
+                    <ion-input [(ngModel)]="_motoristaService.carro.modelo" name="modelo" type="text"></ion-input>
+                </ion-item>
 
                 <ion-item>
                     <ion-label floating>Placa</ion-label>

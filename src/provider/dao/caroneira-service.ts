@@ -2,12 +2,12 @@ import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/map';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from "angularfire2/auth";
-import { Caroneira } from "../../domain/usuario/caroneira";
+import { Usuario } from "../../domain/usuario/usuario";
 
 @Injectable()
 export class CaroneiraFormService {
     public usuario: AngularFireList<any>;
-    public caroneira: Caroneira = new Caroneira();
+    public caroneira: Usuario = new Usuario();
 
     constructor(
         private _db: AngularFireDatabase,
@@ -15,7 +15,7 @@ export class CaroneiraFormService {
     ){ }
 
     getData(){
-        this.usuario = this._db.list("/caroneira");
+        this.usuario = this._db.list("/usuaria/caroneira");
         return this.usuario;
     }
 
@@ -27,25 +27,26 @@ export class CaroneiraFormService {
         }
     }
     
-    private _insert(caroneira: Caroneira){
+    private _insert(caroneira: Usuario){
         this.usuario.push({
+            // key: caroneira.key,
             nome: caroneira.nome,
-            email: caroneira.email,
-            sexo: caroneira.sexo,
-            nascimento: caroneira.nascimento,
             telefone: caroneira.telefone,
-            cpf: caroneira.cpf
+            cpf: caroneira.cpf,
+            email: caroneira.email,
+            nascimento: caroneira.nascimento,
+            tipo: caroneira.tipo,
         });
     }
 
-    private _update(caroneira: Caroneira){
+    private _update(caroneira: Usuario){
         this.usuario.update(caroneira.key, { 
             nome: caroneira.nome,
-            email: caroneira.email,
-            sexo: caroneira.sexo,
-            nascimento: caroneira.nascimento,
             telefone: caroneira.telefone,
-            cpf: caroneira.cpf                        
+            cpf: caroneira.cpf,
+            email: caroneira.email,
+            nascimento: caroneira.nascimento,
+            tipo: caroneira.tipo,
         })
     }
 

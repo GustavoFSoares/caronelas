@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 
-import { Caroneira } from "../../../domain/usuario/caroneira";
+import { Usuario } from "../../../domain/usuario/usuario";
 import { CaroneiraFormService } from "../../../provider/dao/caroneira-service";
 
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
@@ -14,7 +14,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 })
 export class FormCaroneira 
 {
-    public caroneira: AngularFireList<Caroneira>
+    public caroneiro: AngularFireList<Usuario>
     private _alert: Alert;
 
     constructor(
@@ -22,7 +22,7 @@ export class FormCaroneira
         public navParams: NavParams,
         public alertCtrl: AlertController,
         private _caroneiraService: CaroneiraFormService,
-    ) {        
+    ) {
         this._alert = this.alertCtrl.create({
             title: "Aviso!",
             subTitle: "Tem certeza que deseja fazer isso?",
@@ -32,6 +32,8 @@ export class FormCaroneira
                 { text: "Desejo estragar a plataforma", handler: () => console.log("Sendo PNC") }
             ]
         });
+
+        this._caroneiraService.caroneira.tipo = "caroneira";
     }
 
     ngOnInit(){
@@ -41,7 +43,7 @@ export class FormCaroneira
             user.forEach(element => {
                 let y = element.payload.toJSON();
                 y['key'] = element.key;
-                usuario.push(y as Caroneira);
+                usuario.push(y as Usuario);
             });
             // console.log(usuario);
         });
@@ -51,19 +53,19 @@ export class FormCaroneira
         if (form.value.sexo == "homem") {
             this._alert.present();
         }
-
-        let caroneira = {
+        
+        let caroneira = {         
+            "key": form.value.key,
+            "nome": form.value.nome,
+            "telefone": form.value.telefone,
             "cpf": form.value.cpf,
             "email": form.value.email,
-            "key": form.value.key,
             "nascimento": form.value.nascimento,
-            "nome": form.value.nome,
-            "sexo": form.value.sexo,
-            "telefone": form.value.telefone,
+            "tipo": form.value.tipo,
         }
-
-        this._caroneiraService.save(caroneira);   
-        this.navCtrl.setRoot(ListagemCaronasPage);
+        
+        this._caroneiraService.save(caroneira);
+        this.navCtrl.setRoot(ListagemCaronasPage, {caroneira: caroneira});
     }
 
 }

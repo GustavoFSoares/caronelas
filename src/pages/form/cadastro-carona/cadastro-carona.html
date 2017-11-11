@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>cadastro-carona</ion-title>
+        <ion-title>Cadastro de Caronas</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -47,13 +47,13 @@
                     <table>
                         <tr>
                             <td>
-                                <button ion-button block outline (click)="abrirMapa()">
+                                <button id="origem" class="mapa" ion-button block outline (click)="abrirMapa()">
                                     <ion-icon *ngIf="false" ios="ios-map" md="md-map"></ion-icon>
                                     <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
                                 </button>
                             </td>
                             <td>
-                                <button ion-button block outline (click)="abrirMapa()">
+                                <button id="destino" class="mapa" ion-button block outline (click)="abrirMapa()">
                                     <ion-icon *ngIf="true" ios="ios-map" md="md-map"></ion-icon>
                                     <ion-icon *ngIf="false" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
                                 </button>
@@ -68,8 +68,13 @@
                     Horário de Saída
                 </ion-item-divider>
                 <ion-item>
-                    <ion-label floating>Data de Saída</ion-label>
-                    <ion-datetime name="saida" displayFormat="DD/MM/YYYY HH:M"></ion-datetime>
+                    <ion-label floating>Dia</ion-label>
+                    <ion-datetime name="dia" displayFormat="DD/MM/YYYY"></ion-datetime>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating>Horario</ion-label>
+                    <ion-datetime name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
         
                 
@@ -79,13 +84,13 @@
                 </ion-item-divider>
                 <ion-item>
                     <ion-label floating>Tempo de Tolerância</ion-label>
-                    <ion-datetime name="saida" displayFormat="HH:M"></ion-datetime>
+                    <ion-datetime name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
 
             </ion-card-content>
         </ion-card>
     
-        <button ion-button block type="submit">Cadastrar</button>
+        <button ion-button block type="submit">Solicitar Carona</button>
     </form>
     
 

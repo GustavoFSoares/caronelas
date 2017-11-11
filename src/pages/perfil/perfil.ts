@@ -13,6 +13,7 @@ import { LoginPage } from '../login/login';
 export class PerfilPage {  
     displayName: string;
     imgUrl: string;
+    gender: string;
 
     public info: object = {};
     constructor(
@@ -23,10 +24,12 @@ export class PerfilPage {
         const authObserver = this._afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
+            this.gender = "";  
             
             if (user) {
                 this.displayName = user.displayName;
                 this.imgUrl = user.photoURL;
+                // this.gender = user.
                 authObserver.unsubscribe();
             }
         });

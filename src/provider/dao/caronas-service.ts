@@ -11,7 +11,7 @@ export class CaronaService {
     public carona: AngularFireList<any>;
     public trajeto: Trajeto;
     public usuario: Usuario;
-    public caroneira: Carona = new Carona('', [''],'', this.trajeto);
+    // public caroneira: Carona = new Carona('', [''],'', this.trajeto);
 
     constructor(
         private _db: AngularFireDatabase,

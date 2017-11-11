@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 
-import { Motorista, Carro } from "../../../domain/usuario/motorista";
+import { Usuario } from "../../../domain/usuario/usuario";
 import { MotoristaFormService } from "../../../provider/dao/motorista-service";
 
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
@@ -14,7 +14,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 })
 export class FormMotorista 
 {
-    public motorista: AngularFireList<Motorista>
+    public motorista: AngularFireList<Usuario>
     private _alert: Alert;
 
     constructor(
@@ -32,6 +32,10 @@ export class FormMotorista
                 { text: "Desejo estragar a plataforma", handler: () => console.log("Sendo PNC") }
             ]
         });
+
+        this._motoristaService.motorista.tipo = "motorista";
+        console.log(this._motoristaService.carro);
+        
     }
 
     ngOnInit() {
@@ -41,7 +45,7 @@ export class FormMotorista
             user.forEach(element => {
                 let y = element.payload.toJSON();
                 y['key'] = element.key;
-                usuario.push(y as Motorista);
+                usuario.push(y as Usuario);
             });
             // console.log(usuario);
         });
@@ -53,14 +57,14 @@ export class FormMotorista
         }
         
         let motorista = {
-            "cpf": form.value.cpf,
-            "cnh": form.value.cnh,
-            "email": form.value.email,
             "key": form.value.key,
-            "nascimento": form.value.nascimento,
             "nome": form.value.nome,
-            "sexo": form.value.sexo,
             "telefone": form.value.telefone,
+            "cpf": form.value.cpf,
+            "email": form.value.email,
+            "nascimento": form.value.nascimento,
+            "tipo": form.value.tipo,
+            "cnh":form.value.cnh,
             "tem_cnh": form.value.tem_cnh
         } 
 
@@ -69,9 +73,12 @@ export class FormMotorista
             "cor": form.value.cor,
             "placa": form.value.placa,
             "renavan": form.value.renavan,
+            "marca": form.value.marca,
+            "modelo": form.value.modelo,
         }
         
+        let condutora = {motorista, carro};
         this._motoristaService.save(motorista, carro);
-        this.navCtrl.setRoot(ListagemCaronasPage);
+        this.navCtrl.setRoot(ListagemCaronasPage, {condutora: condutora});
     }
 }

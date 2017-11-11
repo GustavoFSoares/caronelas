@@ -4,10 +4,10 @@ import { Usuario } from "../usuario/usuario";
 export class Carona {
 
     constructor(
-        public key_motorista: string,
-        public key_caroneiras: string[],
+        public motorista: Usuario = new Usuario(),
+        public caroneiras: Usuario[] = new Usuario()[''],
         public status: string = "",
-        public trajeto: Trajeto,
+        public trajeto: Trajeto = new Trajeto(),
     ) { }
 }
 

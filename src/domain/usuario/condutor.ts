@@ -1,16 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Usuario } from "./usuario";
 
 @Injectable()
-export class Motorista extends Usuario {
+export class Condutor{
     
     constructor(
         public cnh: string = "",
         public tem_cnh: boolean = false, 
-        public carro = new Carro()
-    ){
-        super();
-    }
+        public carro = new Carro(),
+    ){ }
 }
 
 @Injectable()
@@ -21,6 +18,8 @@ export class Carro {
         public ano: string = new Date().toISOString(),
         public cor: string = "",
         public renavan: string = "",
+        public marca: string = "",
+        public modelo: string = "",
     ) { }
 
 }

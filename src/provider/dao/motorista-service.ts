@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 // import 'rxjs/add/operator/map';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from "angularfire2/auth";
-import { Motorista, Carro } from "../../domain/usuario/motorista";
+import { Carro } from "../../domain/usuario/condutor";
+import { Usuario } from "../../domain/usuario/usuario";
 
 @Injectable()
 export class MotoristaFormService {
     public usuario: AngularFireList<any>;
-    public motorista: Motorista = new Motorista();
+    public motorista: Usuario = new Usuario();
     public carro: Carro = new Carro();
 
     constructor(
@@ -16,7 +17,7 @@ export class MotoristaFormService {
     ) { }
 
     getData() {
-        this.usuario = this._db.list("/motorista");
+        this.usuario = this._db.list("/usuaria/motorista");
         return this.usuario;
     }
 
@@ -28,26 +29,28 @@ export class MotoristaFormService {
         }
     }
 
-    private _insert(motorista: Motorista, carro: Carro) {
+    private _insert(motorista: Usuario, carro: Carro) {
         this.usuario.push({
             nome: motorista.nome,
-            email: motorista.email,
-            sexo: motorista.sexo,
-            nascimento: motorista.nascimento,
             telefone: motorista.telefone,
             cpf: motorista.cpf,
+            email: motorista.email,
+            nascimento: motorista.nascimento,
+            tipo: motorista.tipo,
             cnh: motorista.cnh,
             tem_cnh: motorista.tem_cnh,
             carro:{
-                placa: carro.placa,
-                cor: carro.cor,
-                renavan: carro.renavan,
                 ano: carro.ano,
+                cor: carro.cor,
+                placa: carro.placa,
+                renavan: carro.renavan,
+                marca: carro.marca,
+                modelo: carro.modelo,
             }
         });
     }
 
-    private _update(motorista: Motorista, carro: Carro) {
+    private _update(motorista: Usuario, carro: Carro) {
         this.usuario.update(motorista.key, {
             nome: motorista.nome,
             email: motorista.email,
