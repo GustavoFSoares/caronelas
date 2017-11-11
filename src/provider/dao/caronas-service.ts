@@ -8,8 +8,9 @@ import { Usuario } from "../../domain/usuario/usuario";
 
 @Injectable()
 export class CaronaService {
-    public carona: AngularFireList<any>;
-    public trajeto: Trajeto;
+    public caronas: AngularFireList<any>;
+    public carona: Carona = new Carona();
+    
     public usuario: Usuario;
     // public caroneira: Carona = new Carona('', [''],'', this.trajeto);
 
@@ -31,7 +32,7 @@ export class CaronaService {
     //     }
     // }
 
-    // private _insert(caroneira: Caroneira) {
+    // private _insert(caroneira: Caroneira) {  
     //     this.carona.push({
     //         nome: caroneira.nome,
     //         email: caroneira.email,

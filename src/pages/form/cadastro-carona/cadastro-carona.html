@@ -13,32 +13,6 @@
         <ion-card>
             <ion-card-content>
                 
-                <!-- <ion-item-divider color='light'>
-                    <ion-icon ios="ios-compass" md="md-compass" item-left></ion-icon>
-                    Origem e Destino da Viagem</ion-item-divider>
-                <ion-grid>
-
-                    <ion-item>
-                        <ion-row>
-                            
-                            <ion-col col-3>
-                                <button ion-button block outline (click)="abrirMapa()">
-                                    <ion-icon name="map"></ion-icon>
-
-                                </button>
-                            </ion-col>
-
-                            <ion-col col-3 offset-3>
-                                <button ion-button block outline (click)="abrirMapa()">
-                                    <ion-icon *ngIf="true" ios="ios-map" md="md-map"></ion-icon>
-                                    <ion-icon *ngIf="false" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
-                                </button>
-                            </ion-col>
-
-                        </ion-row>
-                    </ion-item>
-
-                </ion-grid> -->
                 <ion-item-divider color='light'>
                     <ion-icon ios="ios-compass" md="md-compass" item-left></ion-icon>
                     Origem e Destino da Viagem
@@ -47,15 +21,15 @@
                     <table>
                         <tr>
                             <td>
-                                <button id="origem" class="mapa" ion-button block outline (click)="abrirMapa()">
-                                    <ion-icon *ngIf="false" ios="ios-map" md="md-map"></ion-icon>
-                                    <ion-icon *ngIf="true" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                                <button id="origem" class="mapa" ion-button block outline (click)="abrirMapa('origem')">
+                                    <ion-icon *ngIf="(retorno_origem==false)" ios="ios-map" md="md-map"></ion-icon>
+                                    <ion-icon *ngIf="(retorno_origem==true)" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
                                 </button>
                             </td>
                             <td>
-                                <button id="destino" class="mapa" ion-button block outline (click)="abrirMapa()">
-                                    <ion-icon *ngIf="true" ios="ios-map" md="md-map"></ion-icon>
-                                    <ion-icon *ngIf="false" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+                                <button id="destino" class="mapa" ion-button block outline (click)="abrirMapa('destino')">
+                                    <ion-icon *ngIf="(retorno_destino==false)" ios="ios-map" md="md-map"></ion-icon>
+                                    <ion-icon *ngIf="(retorno_destino==true)" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
                                 </button>
                             </td>
                         </tr>
@@ -69,12 +43,12 @@
                 </ion-item-divider>
                 <ion-item>
                     <ion-label floating>Dia</ion-label>
-                    <ion-datetime name="dia" displayFormat="DD/MM/YYYY"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.dia_saida" name="dia" displayFormat="DD/MM/YYYY"></ion-datetime>
                 </ion-item>
                 
                 <ion-item>
                     <ion-label floating>Horario</ion-label>
-                    <ion-datetime name="saida" displayFormat="h:m a"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.hora_saida" name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
         
                 
@@ -84,13 +58,13 @@
                 </ion-item-divider>
                 <ion-item>
                     <ion-label floating>Tempo de Tolerância</ion-label>
-                    <ion-datetime name="saida" displayFormat="h:m a"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.tolerancia" name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
 
             </ion-card-content>
         </ion-card>
     
-        <button ion-button block type="submit">Solicitar Carona</button>
+        <button (click)="cadastrarCarona()" ion-button block type="submit">Solicitar Carona</button>
     </form>
     
 

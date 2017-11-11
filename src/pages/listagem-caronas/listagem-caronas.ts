@@ -21,6 +21,7 @@ export class ListagemCaronasPage
 {
     public motoristas: Usuario[] = [];
     public usuario: Usuario;
+    public usuario1;
     // public carro: Carro;
     constructor(
         public navCtrl: NavController,
@@ -38,7 +39,7 @@ export class ListagemCaronasPage
             }
             this.usuario = usuario;
         }
-     }
+    }
 
     ngOnInit() 
     {
@@ -65,16 +66,37 @@ export class ListagemCaronasPage
                 });
                 this.motoristas = motorista;
             });
+
+        this.usuario1 = {
+            carro:{ 
+                ano: "2017-11-10T23:10:50.170Z",
+                cor : "Marrom",
+                marca : "Hyundai",
+                modelo : "Galloper 3.0 V6 Super Luxo Aut",
+                placa : "LVX-8047",
+                renavan : "47103952094",
+            },
+            cnh: "59636316916",
+            cpf : "677.036.700-90",
+            email : "ana@gmail.com",
+            idade: "19",
+            key : "-KycCUAZg9B-KcYYHt56",
+            nascimento : "1998-11-07T23:10:50.170Z",
+            nome : "Ana",
+            telefone : "51999207540",
+            tem_cnh : false,
+            tipo : "motorista",
+        }
     }
 
-    adicionarCarona()
+    cadastrarCarona()
     {
-        this.navCtrl.push(CadastroCaronaPage);
+        this.navCtrl.push(CadastroCaronaPage, { usuario: this.usuario1 });
     }
 
-    detalharCarona(motorista: Usuario)
+    detalharCarona(usuario: Usuario)
     {
-        this.navCtrl.push(DetalheCaronaPage, { "motorista": motorista });
+        this.navCtrl.push(DetalheCaronaPage, { usuario: usuario });
     }
 
     abrir(){
@@ -82,3 +104,4 @@ export class ListagemCaronasPage
     }
 
 }
+

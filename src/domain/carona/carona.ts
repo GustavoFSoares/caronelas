@@ -17,8 +17,8 @@ export class Trajeto {
     constructor(
         public local_origem: string = "",
         public local_destino: string = "",
-        public horario_origem: string = new Date().toISOString(),
-        public horario_destino: string = new Date().toISOString(),
-        public tolerancia: string = new Date().toISOString(),
+        public dia_saida: Date = new Date(),
+        public hora_saida: Date = new Date(),
+        public tolerancia: Date = new Date(),
     ){ }
 }

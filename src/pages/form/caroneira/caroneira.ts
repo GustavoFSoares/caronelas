@@ -14,7 +14,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 })
 export class FormCaroneira 
 {
-    public caroneiro: AngularFireList<Usuario>
+    // public caroneiro: AngularFireList<Usuario>
     private _alert: Alert;
 
     constructor(

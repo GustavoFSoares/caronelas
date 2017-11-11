@@ -9,9 +9,9 @@ import { Usuario } from "../../domain/usuario/usuario";
 })
 export class DetalheCaronaPage {
 
-    public motorista: Usuario;
+    public usuario: Usuario;
     constructor(public navCtrl: NavController, public navParams: NavParams) { 
-        this.motorista = this.navParams.get('motorista')
+        this.usuario = this.navParams.get('usuario')
     }
 
 }

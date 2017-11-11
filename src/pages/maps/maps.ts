@@ -12,7 +12,7 @@ export class MapsPage {
     @ViewChild('map') mapRef:ElementRef;
 
     constructor(public navParams: NavParams, private _viewCtrl: ViewController) {
-        console.log(navigator.geolocation);
+        // console.log(navigator.geolocation);
      }
 
     ngOnInit() {
