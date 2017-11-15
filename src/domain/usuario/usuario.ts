@@ -10,6 +10,7 @@ export class  Usuario extends Condutor
         public cpf: string = "",
         public email: string = "",
         public nascimento: string = new Date().toISOString(),
+        public idade: string = "",
         public tipo: string = "",
         public condutor: Condutor = new Condutor(),
     ){

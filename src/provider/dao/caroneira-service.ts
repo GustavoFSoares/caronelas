@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import 'rxjs/add/operator/map';
+
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from "angularfire2/auth";
+
 import { Usuario } from "../../domain/usuario/usuario";
 
 @Injectable()
@@ -33,6 +34,7 @@ export class CaroneiraFormService {
             telefone: caroneira.telefone,
             cpf: caroneira.cpf,
             email: caroneira.email,
+            idade: caroneira.idade,
             nascimento: caroneira.nascimento,
             tipo: caroneira.tipo,
         });

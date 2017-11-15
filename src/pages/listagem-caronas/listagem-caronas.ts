@@ -50,7 +50,6 @@ export class ListagemCaronasPage
                     let y = element.payload.toJSON();
                     
                     y['key'] = element.key;
-                    y['idade'] = this.formService.getIdade(y['motorista']['nascimento']);
                     carona.push(y as Carona);
                 });
                 this.caronas = carona;
@@ -84,9 +83,9 @@ export class ListagemCaronasPage
         this.navCtrl.push(CadastroCaronaPage, { usuario: this.usuario });
     }
 
-    detalharCarona(usuario: Usuario)
+    detalharCarona(carona: Carona)
     {
-        this.navCtrl.push(DetalheCaronaPage, { usuario: usuario });
+        this.navCtrl.push(DetalheCaronaPage, { carona: carona, usuario: this.usuario });
     }
 
     abrir(){
