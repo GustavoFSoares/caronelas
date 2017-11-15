@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/map';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from "angularfire2/auth";
-
 import { Carona, Trajeto } from "../../domain/carona/carona";
 import { Usuario } from "../../domain/usuario/usuario";
 
@@ -11,7 +10,7 @@ export class CaronaService {
     public caronas: AngularFireList<any>;
     public carona: Carona = new Carona();
     
-    public usuario: Usuario;
+    // public usuario: Usuario;
     // public caroneira: Carona = new Carona('', [''],'', this.trajeto);
 
     constructor(
@@ -20,31 +19,42 @@ export class CaronaService {
     ) { }
 
     getData() {
-        this.carona = this._db.list("/caronas");
-        return this.carona;
+        this.caronas = this._db.list("/carona");
+        return this.caronas;
     }
 
-    // save(caroneira) {
-    //     if (caroneira.key == "") {
-    //         this._insert(caroneira);
-    //     } else {
-    //         this._update(caroneira);
-    //     }
-    // }
+    save(carona) {
+        if(carona.caroneiras == undefined){
+            carona.caroneiras = null;
+        }
+        
+        if(carona.motorista == undefined){
+            carona.motorista = null;
+        }
 
-    // private _insert(caroneira: Caroneira) {  
-    //     this.carona.push({
-    //         nome: caroneira.nome,
-    //         email: caroneira.email,
-    //         sexo: caroneira.sexo,
-    //         nascimento: caroneira.nascimento,
-    //         telefone: caroneira.telefone,
-    //         cpf: caroneira.cpf
-    //     });
-    // }
+        if (carona.key == "") {
+            this._insert(carona);
+        } else {
+            this._update(carona);
+        }
+    }
 
-    // private _update(caroneira: Caroneira) {
-    //     this.carona.update(caroneira.key, {
+    private _insert(carona: Carona) {  
+        console.log(carona);
+        
+        this.caronas.push({
+            caroneiras: carona.caroneiras,
+            motorista: carona.motorista,
+            status: carona.status,
+            trajeto: carona.trajeto,
+            // ocupacao: carona.ocupacao,
+        });
+    }
+
+    private _update(carona: Carona) {
+        console.log('321');
+        
+    //     this.caronas.update(caroneira.key, {
     //         nome: caroneira.nome,
     //         email: caroneira.email,
     //         sexo: caroneira.sexo,
@@ -52,7 +62,7 @@ export class CaronaService {
     //         telefone: caroneira.telefone,
     //         cpf: caroneira.cpf
     //     })
-    // }
+    }
 
     // remove(key: string) {
     //     this.carona.remove(key);

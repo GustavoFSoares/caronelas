@@ -7,6 +7,7 @@ import { Carona, Trajeto } from "../../../domain/carona/carona";
 import { CaronaService } from "../../../provider/dao/caronas-service";
 
 import { MapsPage } from "../../maps/maps";
+import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 @IonicPage()
 @Component({
     selector: 'page-cadastro-carona',
@@ -32,12 +33,27 @@ export class CadastroCaronaPage {
 
         if (this.usuario.tipo == "caroneira"){
             let caroneiras = [];
-            caroneiras.push(this.usuario, this.usuario, this._caronaService.carona.caroneiras);
+            caroneiras.push(this.usuario, this._caronaService.carona.caroneiras);
             this._caronaService.carona.caroneiras = caroneiras;
         } else if (this.usuario.tipo == "motorista"){
             this._caronaService.carona.motorista = this.usuario;
         }
-     }
+    }
+
+    ngOnInit() {
+        let x = this._caronaService.getData();
+        x.snapshotChanges().subscribe(carona => {
+            let caronas = [];
+            console.log(carona);
+            
+            carona.forEach(element => {
+                let y = element.payload.toJSON();
+                y['key'] = element.key;
+                caronas.push(y as Carona);
+            });
+            // console.log(usuario);
+        });
+    }
 
     abrirMapa(forma) {
         let profileModal = this.modalCtrl.create(MapsPage);
@@ -56,7 +72,8 @@ export class CadastroCaronaPage {
     }
 
     cadastrarCarona(){
-        console.log(this._caronaService.carona);
+        this._caronaService.save(this._caronaService.carona);
+        // this.navCtrl.setRoot(ListagemCaronasPage, { caroneira: this.usuario });
     }
 
 }

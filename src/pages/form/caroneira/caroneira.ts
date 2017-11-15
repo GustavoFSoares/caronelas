@@ -37,16 +37,16 @@ export class FormCaroneira
     }
 
     ngOnInit(){
-        let x = this._caroneiraService.getData();
-        x.snapshotChanges().subscribe(user => {
-            let usuario = [];
-            user.forEach(element => {
-                let y = element.payload.toJSON();
-                y['key'] = element.key;
-                usuario.push(y as Usuario);
-            });
-            // console.log(usuario);
-        });
+        // let x = this._caroneiraService.getData();
+        // x.snapshotChanges().subscribe(user => {
+        //     let usuario = [];
+        //     user.forEach(element => {
+        //         let y = element.payload.toJSON();
+        //         y['key'] = element.key;
+        //         usuario.push(y as Usuario);
+        //     });
+        //     // console.log(usuario);
+        // });
     }
 
     cadastrar(form: NgForm) {
