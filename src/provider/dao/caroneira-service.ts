@@ -29,7 +29,6 @@ export class CaroneiraFormService {
     
     private _insert(caroneira: Usuario){
         this.usuario.push({
-            // key: caroneira.key,
             nome: caroneira.nome,
             telefone: caroneira.telefone,
             cpf: caroneira.cpf,

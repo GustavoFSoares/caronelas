@@ -13,7 +13,7 @@ export class MotoristaFormService {
 
     constructor(
         private _db: AngularFireDatabase,
-        private _aungularFireAuth: AngularFireAuth,
+        private _angularFireAuth: AngularFireAuth,
     ) { }
 
     getData() {
@@ -53,11 +53,21 @@ export class MotoristaFormService {
     private _update(motorista: Usuario, carro: Carro) {
         this.usuario.update(motorista.key, {
             nome: motorista.nome,
-            email: motorista.email,
-            sexo: motorista.sexo,
-            nascimento: motorista.nascimento,
             telefone: motorista.telefone,
-            cpf: motorista.cpf
+            cpf: motorista.cpf,
+            email: motorista.email,
+            nascimento: motorista.nascimento,
+            tipo: motorista.tipo,
+            cnh: motorista.cnh,
+            tem_cnh: motorista.tem_cnh,
+            carro: {
+                ano: carro.ano,
+                cor: carro.cor,
+                placa: carro.placa,
+                renavan: carro.renavan,
+                marca: carro.marca,
+                modelo: carro.modelo,
+            }
         })
     }
 

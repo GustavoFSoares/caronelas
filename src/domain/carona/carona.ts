@@ -4,8 +4,9 @@ import { Usuario } from "../usuario/usuario";
 export class Carona {
 
     constructor(
+        public key: string = "",
         public motorista: Usuario = new Usuario(),
-        public caroneiras: Usuario[] = new Usuario()[''],
+        public caroneiras: Usuario[] = null,
         public status: string = "",
         public trajeto: Trajeto = new Trajeto(),
     ) { }

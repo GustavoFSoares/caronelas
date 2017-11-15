@@ -8,7 +8,6 @@ import { Usuario } from "../../domain/usuario/usuario";
 
 import { FormService } from "../../domain/form/form-service";
 import { CaronaService } from "../../provider/dao/caronas-service";
-import { MotoristaFormService } from "../../provider/dao/motorista-service";
 
 import { CadastroCaronaPage } from "../form/cadastro-carona/cadastro-carona";
 import { DetalheCaronaPage } from "../detalhe-carona/detalhe-carona";
@@ -19,17 +18,18 @@ import { DetalheCaronaPage } from "../detalhe-carona/detalhe-carona";
 })
 export class ListagemCaronasPage 
 {
-    public motoristas: Usuario[] = [];
+    public caronas: Carona[] = [];
     public usuario: Usuario;
-    public usuario1;
+    // public usuario1;
     // public carro: Carro;
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         private _caronaService: CaronaService,
-        private _motoristaService: MotoristaFormService,
         public formService: FormService,
     ) {
+        // this.motorista = this._caronaService.carona.motorista.nome
+
         if (this.usuario == undefined) {            
             let usuario: Usuario;
             if (this.navParams.get('caroneira') != undefined) {
@@ -43,55 +43,45 @@ export class ListagemCaronasPage
 
     ngOnInit() 
     {
-        // let x = this._caronaService.getData();
-        // x.snapshotChanges().subscribe(user => {
-        //     let carona = [];
-        //     user.forEach(element => {
-        //         let y = element.payload.toJSON();
-        //         y['key'] = element.key;
-        //         carona.push(y as Carona);
-        //     });
-            // console.log(carona);
-        // });
-
-        this._motoristaService.getData().
+        this._caronaService.getData().
             snapshotChanges().subscribe(response => {
-                let motorista = [];
+                let carona = [];
                 response.forEach(element => {
                     let y = element.payload.toJSON();
+                    
                     y['key'] = element.key;
-                    y['idade'] = this.formService.getIdade(y['nascimento']);
-
-                    motorista.push(y as Usuario);
+                    y['idade'] = this.formService.getIdade(y['motorista']['nascimento']);
+                    carona.push(y as Carona);
                 });
-                this.motoristas = motorista;
+                this.caronas = carona;
+                
             });
 
-        this.usuario1 = {
-            carro:{ 
-                ano: "2017-11-10T23:10:50.170Z",
-                cor : "Marrom",
-                marca : "Hyundai",
-                modelo : "Galloper 3.0 V6 Super Luxo Aut",
-                placa : "LVX-8047",
-                renavan : "47103952094",
-            },
-            cnh: "59636316916",
-            cpf : "677.036.700-90",
-            email : "ana@gmail.com",
-            idade: "19",
-            key : "-KycCUAZg9B-KcYYHt56",
-            nascimento : "1998-11-07T23:10:50.170Z",
-            nome : "Ana",
-            telefone : "51999207540",
-            tem_cnh : false,
-            tipo : "motorista",
-        }
+        // this.usuario1 = {
+        //     carro:{ 
+        //         ano: "2017-11-10T23:10:50.170Z",
+        //         cor : "Marrom",
+        //         marca : "Hyundai",
+        //         modelo : "Galloper 3.0 V6 Super Luxo Aut",
+        //         placa : "LVX-8047",
+        //         renavan : "47103952094",
+        //     },
+        //     cnh: "59636316916",
+        //     cpf : "677.036.700-90",
+        //     email : "ana@gmail.com",
+        //     idade: "19",
+        //     key : "-KycCUAZg9B-KcYYHt56",
+        //     nascimento : "1998-11-07T23:10:50.170Z",
+        //     nome : "Ana",
+        //     telefone : "51999207540",
+        //     tem_cnh : false,
+        //     tipo : "caroneira",
+        // }
     }
 
     cadastrarCarona()
     {
-        this.navCtrl.push(CadastroCaronaPage, { usuario: this.usuario1 });
+        this.navCtrl.push(CadastroCaronaPage, { usuario: this.usuario });
     }
 
     detalharCarona(usuario: Usuario)
@@ -100,7 +90,7 @@ export class ListagemCaronasPage
     }
 
     abrir(){
-        alert(JSON.stringify(this.motoristas));
+        alert(JSON.stringify(this.caronas));
     }
 
 }

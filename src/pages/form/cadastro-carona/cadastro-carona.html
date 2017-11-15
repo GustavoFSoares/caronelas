@@ -12,7 +12,8 @@
     <form #FormCaroneira="ngForm">
         <ion-card>
             <ion-card-content>
-                
+
+                <input [(ngModel)]="_caronaService.carona.key" name="key" type="hidden">
                 <ion-item-divider color='light'>
                     <ion-icon ios="ios-compass" md="md-compass" item-left></ion-icon>
                     Origem e Destino da Viagem
