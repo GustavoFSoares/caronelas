@@ -50,6 +50,7 @@ export class FormMotorista
             "tipo": form.value.tipo,
             "cnh":form.value.cnh,
             "tem_cnh": form.value.tem_cnh,
+            "status": "novo",
             "carro": {
                 "ano": form.value.ano,
                 "cor": form.value.cor,

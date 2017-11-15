@@ -51,6 +51,7 @@ export class FormCaroneira
             "nascimento": form.value.nascimento,
             "idade": this.formService.getIdade(form.value.nascimento),
             "tipo": form.value.tipo,
+            "status": "novo",
         }
         
         this._caroneiraService.save(caroneira);

@@ -39,6 +39,7 @@ export class MotoristaFormService {
             tipo: motorista.tipo,
             cnh: motorista.cnh,
             tem_cnh: motorista.tem_cnh,
+            status: motorista.status,
             carro:{
                 ano: motorista.carro.ano,
                 cor: motorista.carro.cor,
@@ -61,6 +62,7 @@ export class MotoristaFormService {
             tipo: motorista.tipo,
             cnh: motorista.cnh,
             tem_cnh: motorista.tem_cnh,
+            status: motorista.status,
             carro: {
                 ano: motorista.carro.ano,
                 cor: motorista.carro.cor,

@@ -12,6 +12,7 @@ export class  Usuario extends Condutor
         public nascimento: string = new Date().toISOString(),
         public idade: string = "",
         public tipo: string = "",
+        public status: string = "",
         public condutor: Condutor = new Condutor(),
     ){
         super();

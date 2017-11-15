@@ -37,6 +37,7 @@ export class CaroneiraFormService {
             idade: caroneira.idade,
             nascimento: caroneira.nascimento,
             tipo: caroneira.tipo,
+            status: caroneira.status,
         });
     }
 
@@ -46,8 +47,10 @@ export class CaroneiraFormService {
             telefone: caroneira.telefone,
             cpf: caroneira.cpf,
             email: caroneira.email,
+            idade: caroneira.idade,
             nascimento: caroneira.nascimento,
             tipo: caroneira.tipo,
+            status: caroneira.status,
         })
     }
 
