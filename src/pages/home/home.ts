@@ -20,12 +20,19 @@ export class HomePage {
         public modalCtrl: ModalController,
         private _authService: AuthService,
     ) {
-        if (this._authService.sexo == "male"){
-            let profileModal = this.modalCtrl.create(UsuarioMasculinoPage);
+        this.informacoesPreCarregadas = this._authService.informacoesUsuario;
+        this.informacoesPreCarregadas = {
+            gender: "male",
+            name: "Gustavo Soares",
+            email: "gustavo10.fsoares@gmail.com",
+        };
+        
+        // if (this._authService.sexo == "male"){
+        if (this.informacoesPreCarregadas.gender == "male"){
+            let profileModal: Modal = this.modalCtrl.create(UsuarioMasculinoPage);
             profileModal.present();
         }
-
-        this.informacoesPreCarregadas = this._authService.informacoesUsuario;
+        
      }
 
     selecionarTipo(tipo) {

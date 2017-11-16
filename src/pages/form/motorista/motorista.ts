@@ -27,7 +27,7 @@ export class FormMotorista
         this._motoristaService.motorista.tipo = "motorista";
         this.informacoesUsuario = this.navParams.get('informacoesUsuario');
 
-        this._motoristaService.motorista.nome = this.informacoesUsuario.nome;
+        this._motoristaService.motorista.nome = this.informacoesUsuario.name;
         this._motoristaService.motorista.email = this.informacoesUsuario.email;
     }
 

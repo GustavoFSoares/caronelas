@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { LoginPage } from "../login/login";
+import { AuthService } from "../../provider/auth/auth.service";
 @IonicPage()
 @Component({
     selector: 'page-usuario-masculino',
@@ -8,10 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UsuarioMasculinoPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) { }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private _authService: AuthService,
+    ) { }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad UsuarioMasculinoPage');
+    click(){
+        console.log("clicou porra");
+        // this._authService.signOut();
+        this.navCtrl.setRoot(LoginPage);
     }
 
 }
