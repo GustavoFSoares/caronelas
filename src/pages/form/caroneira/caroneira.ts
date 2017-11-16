@@ -16,6 +16,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 export class FormCaroneira 
 {
     // public caroneiro: AngularFireList<Usuario>
+    public informacoesUsuario;
 
     constructor(
         public navCtrl: NavController,
@@ -23,7 +24,12 @@ export class FormCaroneira
         private _caroneiraService: CaroneiraFormService,
         public formService: FormService,
     ) {
+
         this._caroneiraService.caroneira.tipo = "caroneira";
+        this.informacoesUsuario = this.navParams.get('informacoesUsuario');
+
+        this._caroneiraService.caroneira.nome = this.informacoesUsuario.nome;
+        this._caroneiraService.caroneira.email = this.informacoesUsuario.email;
     }
 
     ngOnInit(){

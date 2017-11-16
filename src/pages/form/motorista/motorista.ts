@@ -16,6 +16,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 export class FormMotorista 
 {
     public motorista: AngularFireList<Usuario>
+    public informacoesUsuario: any;
 
     constructor(
         public navCtrl: NavController,
@@ -23,7 +24,11 @@ export class FormMotorista
         private _motoristaService: MotoristaFormService,
         public formService: FormService,
     ) {
-        this._motoristaService.motorista.tipo = "motorista";        
+        this._motoristaService.motorista.tipo = "motorista";
+        this.informacoesUsuario = this.navParams.get('informacoesUsuario');
+
+        this._motoristaService.motorista.nome = this.informacoesUsuario.nome;
+        this._motoristaService.motorista.email = this.informacoesUsuario.email;
     }
 
     ngOnInit() {
