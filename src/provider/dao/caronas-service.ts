@@ -10,9 +10,6 @@ export class CaronaService {
     public caronas: AngularFireList<any>;
     public carona: Carona = new Carona();
     
-    // public usuario: Usuario;
-    // public caroneira: Carona = new Carona('', [''],'', this.trajeto);
-
     constructor(
         private _db: AngularFireDatabase,
         private _aungularFireAuth: AngularFireAuth,
@@ -40,31 +37,26 @@ export class CaronaService {
     }
 
     private _insert(carona: Carona) {  
-        console.log(carona);
-        
         this.caronas.push({
             caroneiras: carona.caroneiras,
             motorista: carona.motorista,
             status: carona.status,
             trajeto: carona.trajeto,
-            // ocupacao: carona.ocupacao,
+            ocupacao: carona.ocupacao,
         });
     }
 
     private _update(carona: Carona) {
-        console.log('321');
-        
-    //     this.caronas.update(caroneira.key, {
-    //         nome: caroneira.nome,
-    //         email: caroneira.email,
-    //         sexo: caroneira.sexo,
-    //         nascimento: caroneira.nascimento,
-    //         telefone: caroneira.telefone,
-    //         cpf: caroneira.cpf
-    //     })
+        this.caronas.update(carona.key, {
+            caroneiras: carona.caroneiras,
+            motorista: carona.motorista,
+            status: carona.status,
+            trajeto: carona.trajeto,
+            ocupacao: carona.ocupacao,            
+        });
     }
 
-    // remove(key: string) {
-    //     this.carona.remove(key);
-    // }
+    remove(key: string) {
+        this.caronas.remove(key);
+    }
 }

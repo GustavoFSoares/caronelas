@@ -19,25 +19,35 @@ import { DetalheCaronaPage } from "../detalhe-carona/detalhe-carona";
 export class ListagemCaronasPage 
 {
     public caronas: Carona[] = [];
-    public usuario: Usuario;
-    // public usuario1;
-    // public carro: Carro;
+    public usuario;
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         private _caronaService: CaronaService,
         public formService: FormService,
     ) {
-        // this.motorista = this._caronaService.carona.motorista.nome
 
-        if (this.usuario == undefined) {            
+        if (this.usuario == undefined) {
             let usuario: Usuario;
             if (this.navParams.get('caroneira') != undefined) {
                 usuario = this.navParams.get('caroneira');
-            } else {
+            } else if(this.navParams.get('condutora') != undefined) {
                 usuario = this.navParams.get('condutora');
             }
             this.usuario = usuario;
+        }
+
+        if (this.usuario == undefined) {
+            this.usuario = {
+                cpf: "123123123",
+                email: "anap@gmail.com",
+                idade: 12,
+                nascimento: "1997-11-15T01:59:21.725Z",
+                nome: "Paula",
+                telefone: "5199207540",
+                tipo: "caroneira",
+            }
+            console.log("usuario teste", this.usuario);
         }
     }
 
@@ -48,34 +58,13 @@ export class ListagemCaronasPage
                 let carona = [];
                 response.forEach(element => {
                     let y = element.payload.toJSON();
-                    
                     y['key'] = element.key;
                     carona.push(y as Carona);
                 });
                 this.caronas = carona;
+                // console.log(this.caronas);
                 
             });
-
-        // this.usuario1 = {
-        //     carro:{ 
-        //         ano: "2017-11-10T23:10:50.170Z",
-        //         cor : "Marrom",
-        //         marca : "Hyundai",
-        //         modelo : "Galloper 3.0 V6 Super Luxo Aut",
-        //         placa : "LVX-8047",
-        //         renavan : "47103952094",
-        //     },
-        //     cnh: "59636316916",
-        //     cpf : "677.036.700-90",
-        //     email : "ana@gmail.com",
-        //     idade: "19",
-        //     key : "-KycCUAZg9B-KcYYHt56",
-        //     nascimento : "1998-11-07T23:10:50.170Z",
-        //     nome : "Ana",
-        //     telefone : "51999207540",
-        //     tem_cnh : false,
-        //     tipo : "caroneira",
-        // }
     }
 
     cadastrarCarona()

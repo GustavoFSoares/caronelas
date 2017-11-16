@@ -29,4 +29,13 @@ export class FormService {
         return hoje-ano;
     }
 
+    conversorObjetoParaArray(objeto){
+        let array = [];
+        for (let key in objeto) {
+            if (objeto.hasOwnProperty(key)) {
+                array.push(objeto[key]);
+            }
+        }
+        return array;
+    }
 }

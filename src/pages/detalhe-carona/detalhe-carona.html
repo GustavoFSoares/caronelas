@@ -16,19 +16,19 @@
                     </td>
                     <td>
                         <tr>
-                            <td> <h2 id="nome"></h2> </td> 
+                            <td> <h2 id="nome">{{carona.motorista.nome}}</h2> </td> 
                         </tr>
                         <tr>
-                            <td> <h2 id="idade"> anos de idade</h2> </td>
+                            <td> <h2 id="idade">{{carona.motorista.idade}} anos de idade</h2> </td>
                         </tr>
                     </td>
                 </tr>                    
             </table>
 
             <table>
-                <tr> <h2 id="origem">Origem: </h2> </tr>
-                <tr> <h2 id="destino">Destino: </h2> </tr> 
-                <tr> <h2 id="quantidade">Corridas realizadas: </h2> </tr>
+                <tr> <h2 id="origem">Origem: DESCOBRIR COMO CAPTURAR ESSES CAMPOS</h2> </tr>
+                <tr> <h2 id="destino">Destino: DESCOBRIR COMO CAPTURAR ESSES CAMPOS</h2> </tr> 
+                <tr> <h2 id="quantidade">Corridas realizadas: DESCOBRIR COMO CAPTURAR ESSES CAMPOS</h2> </tr>
                 <tr> <button ion-button round id="avaliações"> Avaliações Anteriores </button> </tr>    
                 <tr>
                     <rating 
@@ -46,7 +46,7 @@
 
         </ion-item>
     </ion-card>
-    <button ion-button full color="secondary" id="bt_solicitar">                    
+    <button (click)="solicitarCarona()" *ngIf="usuario.tipo == 'caroneira'" ion-button full color="secondary" id="bt_solicitar">                    
             Solicitar
     </button>
 

@@ -9,6 +9,7 @@ export class Carona {
         public caroneiras: Usuario[] = null,
         public status: string = "",
         public trajeto: Trajeto = new Trajeto(),
+        public ocupacao: number = null,
     ) { }
 }
 

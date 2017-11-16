@@ -8,7 +8,8 @@
 
     <ion-list>
         <ion-item  *ngFor="let carona of caronas" (click)="detalharCarona(carona)" class="item item-block item-ios">
-                <ion-avatar item-start="">
+            <input [(ngModel)]="carona.key" name="key" type="hidden">
+            <ion-avatar item-start="">
                     <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
                 </ion-avatar>
                 <table>
@@ -40,7 +41,7 @@
     </ion-item>
 
     <ion-fab id="botao-adicionar" middle right end>
-        <button (click)="abrir()" color="danger" ion-fab>
+        <button (click)="cadastrarCarona()" color="danger" ion-fab>
             <ion-icon name="add" role="img" class="icon icon-ios ion-ios-add" aria-label="add"></ion-icon>
         </button>
     </ion-fab>
