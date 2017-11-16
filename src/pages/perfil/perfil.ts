@@ -13,7 +13,7 @@ import { LoginPage } from '../login/login';
 export class PerfilPage {  
     displayName: string;
     imgUrl: string;
-    gender: string;
+    public user;
 
     public info: object = {};
     constructor(
@@ -24,8 +24,8 @@ export class PerfilPage {
         const authObserver = this._afAuth.authState.subscribe(user => {
             this.displayName = '';
             this.imgUrl = '';
-            this.gender = "";  
             
+            this.user = this._authService.dado;
             if (user) {
                 this.displayName = user.displayName;
                 this.imgUrl = user.photoURL;
@@ -40,8 +40,7 @@ export class PerfilPage {
             .then( () => this.navCtrl.parent.setRoot(LoginPage) );
     }
 
-    usuarioLogado(){
-        alert(JSON.stringify(this._authService.buscarDadosUsuario));
+    abrir(){
+        alert(JSON.stringify(this.user));
     }
-
 }

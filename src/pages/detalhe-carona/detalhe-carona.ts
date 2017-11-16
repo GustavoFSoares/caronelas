@@ -62,7 +62,6 @@ export class DetalheCaronaPage {
         listaCaroneiras.push(usuario);
         console.log();
         
-// www.atacadogames.com/sorteio.html
         return {
             key: carona.key,
             motorista: carona.motorista,
