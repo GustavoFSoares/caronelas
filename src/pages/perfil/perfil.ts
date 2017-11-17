@@ -25,7 +25,7 @@ export class PerfilPage {
             this.displayName = '';
             this.imgUrl = '';
             
-            this.user = this._authService.dado;
+            this.user = this._authService.informacoesUsuario;
             if (user) {
                 this.displayName = user.displayName;
                 this.imgUrl = user.photoURL;

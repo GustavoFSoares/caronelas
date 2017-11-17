@@ -21,6 +21,7 @@ import { MapsPage } from "../pages/maps/maps";
 import { DetalheCaronaPage } from "../pages/detalhe-carona/detalhe-carona";
 import { AvaliacaoCaronaPage } from "../pages/form/avaliacao-carona/avaliacao-carona";
 import { CadastroCaronaPage } from "../pages/form/cadastro-carona/cadastro-carona";
+import { UsuarioMasculinoPage } from "../pages/usuario-masculino/usuario-masculino";
 
 //---------------Ionic------------------------------
 import { StatusBar } from '@ionic-native/status-bar';
@@ -69,6 +70,7 @@ var firebaseConfig = {
         DetalheCaronaPage,
         AvaliacaoCaronaPage,
         CadastroCaronaPage,
+        UsuarioMasculinoPage,
     ],
     imports: [
         BrowserModule,
@@ -95,6 +97,7 @@ var firebaseConfig = {
         DetalheCaronaPage,
         AvaliacaoCaronaPage,
         CadastroCaronaPage,
+        UsuarioMasculinoPage,
     ],
     providers: [
         StatusBar, 

@@ -52,7 +52,7 @@ export class AuthService {
         });
     }
 
-    get dado() {
-        return this.informacoesUsuario;
+    get sexo(){
+        return this.informacoesUsuario.gender;
     }
 }

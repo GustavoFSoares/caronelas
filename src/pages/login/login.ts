@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { NavController, ToastController } from 'ionic-angular';
 
-// import { HomePage } from "../home/home";
+import { HomePage } from "../home/home";
 import { PerfilPage } from "../perfil/perfil";
 import { AuthService } from "../../provider/auth/auth.service";
 
@@ -22,9 +22,8 @@ export class LoginPage {
     loginWithFacebook() {
         this.authService.signInFacebook()
             .then(() => {
-                console.log(this);
-                this.navCtrl.setRoot(PerfilPage);
-                // this.navCtrl.setRoot(HomePage);
+                // this.navCtrl.setRoot(PerfilPage);
+                this.navCtrl.setRoot(HomePage);
             })
             .catch((error) => {
                 this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar o login' })
