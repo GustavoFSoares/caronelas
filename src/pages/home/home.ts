@@ -21,23 +21,26 @@ export class HomePage {
         private _authService: AuthService,
     ) {
         this.informacoesPreCarregadas = this._authService.informacoesUsuario;
-        this.informacoesPreCarregadas = {
-            gender: "male",
-            name: "Gustavo Soares",
-            email: "gustavo10.fsoares@gmail.com",
-        };
-        
-        // if (this._authService.sexo == "male"){
-        if (this.informacoesPreCarregadas.gender == "male"){
+        console.log(this.informacoesPreCarregadas);
+       
+        if (this.informacoesPreCarregadas == undefined){
+            this.informacoesPreCarregadas = {
+                gender: "male",
+                name: "Gustavo Soares",
+                email: "gustavo10.fsoares@gmail.com",
+            };
+        }    
+
+        if (this.informacoesPreCarregadas.gender != "male") {
             let profileModal: Modal = this.modalCtrl.create(UsuarioMasculinoPage);
             profileModal.present();
         }
-        
-     }
+
+    }
 
     selecionarTipo(tipo) {
-        let novoLogin = this.isNovoLogin();
-        if (novoLogin) {
+        // let novoLogin = this.isNovoLogin();
+        if (this.isNovoLogin()) {
             switch (tipo) {
                 case "caroneira":
                     this.navCtrl.push(FormCaroneira, { informacoesUsuario: this.informacoesPreCarregadas });
