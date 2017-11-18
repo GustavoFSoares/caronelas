@@ -6,6 +6,7 @@ import { AuthService } from "../../provider/auth/auth.service";
 import { FormCaroneira } from "../form/caroneira/caroneira";
 import { FormMotorista } from "../form/motorista/motorista";
 import { UsuarioMasculinoPage } from "../usuario-masculino/usuario-masculino";
+import { stringify } from '@angular/core/src/util';
 
 @Component({
     selector: 'page-home',
@@ -22,14 +23,14 @@ export class HomePage {
     ) {
         this.informacoesPreCarregadas = this._authService.informacoesUsuario;
         console.log(this.informacoesPreCarregadas);
-       
-        if (this.informacoesPreCarregadas == undefined){
-            this.informacoesPreCarregadas = {
-                gender: "male",
-                name: "Gustavo Soares",
-                email: "gustavo10.fsoares@gmail.com",
-            };
-        }    
+        
+        // if (this.informacoesPreCarregadas == undefined){
+        //     this.informacoesPreCarregadas = {
+        //         gender: "female",
+        //         name: "Gustavo Soares",
+        //         email: "gustavo10.fsoares123123@gmail.com",
+        //     };
+        // }    
 
         if (this.informacoesPreCarregadas.gender != "male") {
             let profileModal: Modal = this.modalCtrl.create(UsuarioMasculinoPage);

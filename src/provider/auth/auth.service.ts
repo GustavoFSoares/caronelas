@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthService {
     
-    public informacoesUsuario;
+    public informacoesUsuario = null;
 
     private _token;
 
@@ -24,20 +24,17 @@ export class AuthService {
         return this._facebook.login(['public_profile', 'email'])
             .then((res: FacebookLoginResponse) => {
 
-                // this._facebook.api("me?fields=id,name,email,gender,picture.width(720).height.as(picture_large)", [])
-                this._facebook.api("me?fields=id,name,email,gender", [])
-                    .then(profile => {
-                        this.informacoesUsuario = {
-                            email: profile['email'],
-                            name: profile['name'],
-                            gender: profile['gender'],
-                            // picture: profile['picture_large']['data']['url'],
-                        }
-                    })
+                this._facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
+                    this._facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large),gender', ['public_profile', 'email']).then(profile => {
+                        this.informacoesUsuario = { email: profile['email'], first_name: profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name'], gender: profile['gender'] }
+                        alert(JSON.stringify(this.informacoesUsuario));                        
+                    });
+                    
+                });
 
                 return this._angularFireAuth.auth.signInWithCredential(
-                    firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)                  // firebase.auth.FacebookAuthProvider.credential
-                )}, err => console.log(err) );
+                    firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
+                )}, err => alert("erro"));
     }
 
     signOut(){
@@ -52,7 +49,4 @@ export class AuthService {
         });
     }
 
-    get sexo(){
-        return this.informacoesUsuario.gender;
-    }
 }

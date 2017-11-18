@@ -28,7 +28,7 @@ export class FormCaroneira
         this._caroneiraService.caroneira.tipo = "caroneira";
         this.informacoesUsuario = this.navParams.get('informacoesUsuario');
 
-        this._caroneiraService.caroneira.nome = this.informacoesUsuario.name;
+        this._caroneiraService.caroneira.nome = this.informacoesUsuario.username;
         this._caroneiraService.caroneira.email = this.informacoesUsuario.email;
     }
 

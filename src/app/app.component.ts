@@ -3,6 +3,8 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AuthService } from "../provider/auth/auth.service";
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
@@ -26,7 +28,12 @@ export class MyApp {
         { titulo: "HomePage", componente: HomePage }
     ];
     
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    constructor(
+        platform: Platform,
+        statusBar: StatusBar,
+        splashScreen: SplashScreen,
+        private _authService: AuthService
+    ) {
         platform.ready().then(() => {
             statusBar.styleDefault();
             splashScreen.hide();
@@ -35,5 +42,9 @@ export class MyApp {
 
     abrePagina(pagina) {
         this.nav.push(pagina.componente)
+    }
+
+    sair(){
+        this._authService.signOut();
     }
 }
