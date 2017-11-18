@@ -46,5 +46,6 @@ export class MyApp {
 
     sair(){
         this._authService.signOut();
+        this.nav.setRoot(LoginPage);
     }
 }
