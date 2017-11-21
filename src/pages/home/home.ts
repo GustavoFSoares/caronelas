@@ -54,9 +54,11 @@ export class HomePage {
         } else {
             //outras paginas
         }
+
     }
 
     isNovoLogin() {
         return true;
     }
+    
 }

@@ -59,6 +59,8 @@ export class FormCaroneira
     }
 
     cadastrar(form: NgForm) {
+        this._caroneiraService.caroneira.idade = this.formService.getIdade(this._caroneiraService.caroneira.nascimento);
+
         this._caroneiraService.save(this._caroneiraService.caroneira);
         this.navCtrl.setRoot(ListagemCaronasPage, {caroneira: this._caroneiraService.caroneira});
     }

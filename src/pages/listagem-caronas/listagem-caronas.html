@@ -10,7 +10,7 @@
         <ion-item  *ngFor="let carona of caronas" (click)="detalharCarona(carona)" class="item item-block item-ios">
             <input [(ngModel)]="carona.key" name="key" type="hidden">
             <ion-avatar item-start="">
-                    <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
+                    <img id="foto" [src]="carona.motorista.foto">
                 </ion-avatar>
                 <table>
                     <tr>
