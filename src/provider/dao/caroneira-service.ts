@@ -21,7 +21,6 @@ export class CaroneiraFormService {
     }
 
     save(caroneira){
-        alert(caroneira.key);
         this.caroneira = caroneira;
         
         if(caroneira.key == ""){

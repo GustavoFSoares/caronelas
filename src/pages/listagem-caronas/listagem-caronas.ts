@@ -28,14 +28,10 @@ export class ListagemCaronasPage
     ) {
 
         if (this.usuario == undefined) {
-            let usuario;
-            if (this.navParams.get('caroneira') != undefined) {
-                usuario = this.navParams.get('caroneira');
-            } else if(this.navParams.get('condutora') != undefined) {
-                usuario = this.navParams.get('condutora');
-            }
-            this.usuario = usuario;
+            this.usuario = this.navParams.get('usuario');
         }
+        console.log(this.usuario);
+        
 
     }
 

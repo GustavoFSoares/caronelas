@@ -13,7 +13,7 @@
         <ion-card>
             <ion-card-content>
 
-                <input [(ngModel)]="_caronaService.carona.key" name="key" type="hidden">
+                <input [(ngModel)]="_service.carona.key" name="key" type="hidden">
                 <ion-item-divider color='light'>
                     <ion-icon ios="ios-compass" md="md-compass" item-left></ion-icon>
                     Origem e Destino da Viagem
@@ -44,12 +44,12 @@
                 </ion-item-divider>
                 <ion-item>
                     <ion-label floating>Dia</ion-label>
-                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.dia_saida" name="dia" displayFormat="DD/MM/YYYY"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_service.carona.trajeto.dia_saida" name="dia" displayFormat="DD/MM/YYYY"></ion-datetime>
                 </ion-item>
                 
                 <ion-item>
                     <ion-label floating>Horario</ion-label>
-                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.hora_saida" name="saida" displayFormat="h:m a"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_service.carona.trajeto.hora_saida" name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
         
                 
@@ -59,7 +59,7 @@
                 </ion-item-divider>
                 <ion-item>
                     <ion-label floating>Tempo de Tolerância</ion-label>
-                    <ion-datetime [(ngModel)]="_caronaService.carona.trajeto.tolerancia" name="saida" displayFormat="h:m a"></ion-datetime>
+                    <ion-datetime [(ngModel)]="_service.carona.trajeto.tolerancia" name="saida" displayFormat="h:m a"></ion-datetime>
                 </ion-item>
 
             </ion-card-content>

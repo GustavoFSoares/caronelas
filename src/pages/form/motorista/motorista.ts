@@ -58,8 +58,9 @@ export class FormMotorista
 
     cadastrar(form: NgForm) {
         this._motoristaService.motorista.idade = this.formService.getIdade(this._motoristaService.motorista.nascimento);
-
+        this._motoristaService.motorista.status = "novo";
+    
         this._motoristaService.save(this._motoristaService.motorista);
-        this.navCtrl.setRoot(ListagemCaronasPage, { condutora: this._motoristaService.motorista});
+        this.navCtrl.setRoot(ListagemCaronasPage, { usuario: this._motoristaService.motorista});
     }
 }

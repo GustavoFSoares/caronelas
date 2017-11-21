@@ -5,6 +5,7 @@ import { AngularFireList } from "angularfire2/database";
 import { Usuario } from "../../../domain/usuario/usuario";
 import { Carona, Trajeto } from "../../../domain/carona/carona";
 import { CaronaService } from "../../../provider/dao/caronas-service";
+import { SolicitarCaronaService } from "../../../provider/dao/solicitar-carona-service";
 
 import { MapsPage } from "../../maps/maps";
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
@@ -19,6 +20,7 @@ export class CadastroCaronaPage {
     public usuario: Motorista;
     public carona: Carona = new Carona();
     public trajeto: Trajeto = new Trajeto();
+    private _service: any;
 
     public retorno_origem: boolean = false;
     public retorno_destino: boolean = false;
@@ -28,21 +30,22 @@ export class CadastroCaronaPage {
         public navParams: NavParams,
         public modalCtrl: ModalController,
         private _caronaService: CaronaService,
+        private _solicitarCaronaService: SolicitarCaronaService,
     ) {
         this.usuario = this.navParams.get('usuario');
         console.log(this.usuario);
 
         if (this.usuario.tipo == "caroneira"){
-            let caroneiras = [];
-            caroneiras.push(this.usuario, this._caronaService.carona.caroneiras);
-            this._caronaService.carona.caroneiras = caroneiras;
+            this._service = this._solicitarCaronaService;
+            this._service.carona.caroneira = this.usuario;
         } else if (this.usuario.tipo == "motorista"){
-            this._caronaService.carona.motorista = this.usuario;
+            this._service = this._caronaService;
+            this._service.carona.motorista = this.usuario;
         }
     }
 
     ngOnInit() {
-        let x = this._caronaService.getData();
+        let x = this._service.getData();
         x.snapshotChanges().subscribe(carona => {
             let caronas = [];
             console.log(carona);
@@ -61,10 +64,10 @@ export class CadastroCaronaPage {
         profileModal.onDidDismiss((data) => {
             
             if(forma == 'origem'){
-                this._caronaService.carona.trajeto.local_origem = data.local;
+                this._service.carona.trajeto.local_origem = data.local;
                 this.retorno_origem = data.salvo;
             } else if(forma == 'destino'){
-                this._caronaService.carona.trajeto.local_destino = data.local;
+                this._service.carona.trajeto.local_destino = data.local;
                 this.retorno_destino = data.salvo;
             }
 
@@ -73,8 +76,8 @@ export class CadastroCaronaPage {
     }
 
     cadastrarCarona(){
-        this._caronaService.save(this._caronaService.carona);
-        // this.navCtrl.setRoot(ListagemCaronasPage, { caroneira: this.usuario });
+        this._service.save(this._service.carona);
+        this.navCtrl.setRoot(ListagemCaronasPage, { usuario: this.usuario });
     }
 
 }
