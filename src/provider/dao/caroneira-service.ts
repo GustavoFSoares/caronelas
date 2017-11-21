@@ -21,40 +21,41 @@ export class CaroneiraFormService {
     }
 
     save(caroneira){
+        alert(caroneira.key);
+        this.caroneira = caroneira;
+        
         if(caroneira.key == ""){
-            this._insert(caroneira);
+            this._insert();
         } else {
-            this._update(caroneira);
+            this._update();
         }
     }
     
-    private _insert(caroneira: Usuario){
-        this.usuario.push({
-            nome: caroneira.nome,
-            telefone: caroneira.telefone,
-            cpf: caroneira.cpf,
-            email: caroneira.email,
-            idade: caroneira.idade,
-            nascimento: caroneira.nascimento,
-            tipo: caroneira.tipo,
-            status: caroneira.status,
-        });
+    private _insert(){
+        this.usuario.push( this.getColunas(this.caroneira) );
     }
 
-    private _update(caroneira: Usuario){
-        this.usuario.update(caroneira.key, { 
-            nome: caroneira.nome,
-            telefone: caroneira.telefone,
-            cpf: caroneira.cpf,
-            email: caroneira.email,
-            idade: caroneira.idade,
-            nascimento: caroneira.nascimento,
-            tipo: caroneira.tipo,
-            status: caroneira.status,
-        })
+    private _update(){
+        this.usuario.update(this.caroneira.key, this.getColunas(this.caroneira) );
     }
 
     remove(key: string){
         this.usuario.remove(key);
+    }
+
+    getColunas(caroneira: Usuario) {
+        let colunas = {
+            nome: caroneira.nome,
+            telefone: caroneira.telefone,
+            cpf: caroneira.cpf,
+            email: caroneira.email,
+            idade: caroneira.idade,
+            nascimento: caroneira.nascimento,
+            tipo: caroneira.tipo,
+            status: caroneira.status,
+            foto: caroneira.foto,
+            key: caroneira.key
+        }
+        return colunas;
     }
 }

@@ -22,17 +22,17 @@ export class HomePage {
         private _authService: AuthService,
     ) {
         this.informacoesPreCarregadas = this._authService.informacoesUsuario;
-        console.log(this.informacoesPreCarregadas);
         
-        // if (this.informacoesPreCarregadas == undefined){
-        //     this.informacoesPreCarregadas = {
-        //         gender: "female",
-        //         name: "Gustavo Soares",
-        //         email: "gustavo10.fsoares123123@gmail.com",
-        //     };
-        // }    
+        if (this.informacoesPreCarregadas == undefined){
+            this.informacoesPreCarregadas = {
+                gender: "female",
+                username: "Fabricio Soares",
+                email: "fabricio10.fsoares123123@gmail.com",
+                picture: "http://artenopolis.com/assuntosuniversos/wp-content/uploads/2014/03/vector-gratis-descargar-el-programador-L-2.jpeg",
+            };
+        }
 
-        if (this.informacoesPreCarregadas.gender != "male") {
+        if (this.informacoesPreCarregadas.gender == "male") {
             let profileModal: Modal = this.modalCtrl.create(UsuarioMasculinoPage);
             profileModal.present();
         }

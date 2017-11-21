@@ -16,8 +16,8 @@ import { ListagemCaronasPage } from "../pages/listagem-caronas/listagem-caronas"
 export class MyApp {
 
     // rootPage:any = TabsPage;
-    rootPage:any = LoginPage;
-    // rootPage: any = HomePage;
+    // rootPage:any = LoginPage;
+    rootPage: any = HomePage;
 
 
     @ViewChild(Nav)

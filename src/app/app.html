@@ -13,7 +13,7 @@
             <button menuClose ion-item *ngFor="let pagina of paginas" (click)=abrePagina(pagina)>{{ pagina.titulo }}</button>
         </ion-list>
         <ion-list>
-            <button menuClose ion-item (click)="sair()">Sair</button>
+            <button menuClose ion-button round color="sair" (click)="sair()">Sair</button>
         </ion-list>
     </ion-content>
 </ion-menu>

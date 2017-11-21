@@ -4,7 +4,7 @@ import { Condutor, Carro } from "./condutor";
 export class  Usuario extends Condutor
 {
     constructor(
-        public key: string = "",
+        public key: any = "",
         public nome: string = "",
         public telefone: string = "",
         public cpf: string = "",
@@ -13,6 +13,7 @@ export class  Usuario extends Condutor
         public idade: string = "",
         public tipo: string = "",
         public status: string = "",
+        public foto: any = "",
         public condutor: Condutor = new Condutor(),
     ){
         super();

@@ -21,38 +21,29 @@ export class MotoristaFormService {
     }
 
     save(motorista) {
+        this.motorista = motorista;
+        
         if (motorista.key == "") {
-            this._insert(motorista);
+            this._insert();
         } else {
-            this._update(motorista);
+            this._update();
         }
     }
 
-    private _insert(motorista: Usuario) {
-        this.usuario.push({
-            nome: motorista.nome,
-            telefone: motorista.telefone,
-            cpf: motorista.cpf,
-            email: motorista.email,
-            nascimento: motorista.nascimento,
-            idade: motorista.idade,
-            tipo: motorista.tipo,
-            cnh: motorista.cnh,
-            tem_cnh: motorista.tem_cnh,
-            status: motorista.status,
-            carro:{
-                ano: motorista.carro.ano,
-                cor: motorista.carro.cor,
-                placa: motorista.carro.placa,
-                renavan: motorista.carro.renavan,
-                marca: motorista.carro.marca,
-                modelo: motorista.carro.modelo,
-            }
-        });
+    private _insert() {
+        this.usuario.push( this.getColunas(this.motorista) );
     }
 
-    private _update(motorista: Usuario) {
-        this.usuario.update(motorista.key, {
+    private _update() {
+        this.usuario.update( this.motorista.key, this.getColunas(this.motorista) )
+    }
+
+    remove(key: string) {
+        this.usuario.remove(key);
+    }
+
+    getColunas(motorista: Usuario){
+        let colunas = {
             nome: motorista.nome,
             telefone: motorista.telefone,
             cpf: motorista.cpf,
@@ -63,6 +54,8 @@ export class MotoristaFormService {
             cnh: motorista.cnh,
             tem_cnh: motorista.tem_cnh,
             status: motorista.status,
+            foto: motorista.foto,
+            key: motorista.key,
             carro: {
                 ano: motorista.carro.ano,
                 cor: motorista.carro.cor,
@@ -71,10 +64,8 @@ export class MotoristaFormService {
                 marca: motorista.carro.marca,
                 modelo: motorista.carro.modelo,
             }
-        })
+        }
+        return colunas;
     }
-
-    remove(key: string) {
-        this.usuario.remove(key);
-    }
+    
 }
