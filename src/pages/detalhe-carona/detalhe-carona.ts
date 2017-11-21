@@ -60,7 +60,6 @@ export class DetalheCaronaPage {
         });
         
         listaCaroneiras.push(usuario);
-        console.log();
         
         return {
             key: carona.key,

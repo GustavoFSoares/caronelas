@@ -40,7 +40,7 @@ export class HomePage {
     }
 
     selecionarTipo(tipo) {
-        // let novoLogin = this.isNovoLogin();
+        
         if (this.isNovoLogin()) {
             switch (tipo) {
                 case "caroneira":
@@ -60,5 +60,5 @@ export class HomePage {
     isNovoLogin() {
         return true;
     }
-    
+
 }

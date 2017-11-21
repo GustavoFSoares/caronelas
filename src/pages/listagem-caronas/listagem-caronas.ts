@@ -3,7 +3,7 @@ import { AngularFireList } from "angularfire2/database";
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 import { Carona } from "../../domain/carona/carona";
-import { Carro } from "../../domain/usuario/condutor";
+import { Carro, Motorista } from "../../domain/usuario/condutor";
 import { Usuario } from "../../domain/usuario/usuario";
 
 import { FormService } from "../../domain/form/form-service";
@@ -28,7 +28,7 @@ export class ListagemCaronasPage
     ) {
 
         if (this.usuario == undefined) {
-            let usuario: Usuario;
+            let usuario;
             if (this.navParams.get('caroneira') != undefined) {
                 usuario = this.navParams.get('caroneira');
             } else if(this.navParams.get('condutora') != undefined) {
@@ -37,18 +37,6 @@ export class ListagemCaronasPage
             this.usuario = usuario;
         }
 
-        if (this.usuario == undefined) {
-            this.usuario = {
-                cpf: "123123123",
-                email: "anap@gmail.com",
-                idade: 12,
-                nascimento: "1997-11-15T01:59:21.725Z",
-                nome: "Paula",
-                telefone: "5199207540",
-                tipo: "caroneira",
-            }
-            console.log("usuario teste", this.usuario);
-        }
     }
 
     ngOnInit() 

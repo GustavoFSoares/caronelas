@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Usuario } from "../usuario/usuario";
+import { Motorista } from "../usuario/condutor";
 @Injectable()
 export class Carona {
 
     constructor(
         public key: string = "",
-        public motorista: Usuario = new Usuario(),
+        public motorista: Motorista = null,
         public caroneiras: Usuario[] = null,
         public status: string = "",
         public trajeto: Trajeto = new Trajeto(),

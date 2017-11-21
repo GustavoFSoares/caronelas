@@ -1,13 +1,16 @@
 import { Injectable } from "@angular/core";
-
+import { Usuario } from "./usuario";
 @Injectable()
-export class Condutor{
+export class Motorista extends Usuario
+{
     
     constructor(
         public cnh: string = "",
         public tem_cnh: boolean = false, 
         public carro = new Carro(),
-    ){ }
+    ){
+        super();
+     }
 }
 
 @Injectable()

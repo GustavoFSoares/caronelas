@@ -4,7 +4,7 @@ import { AngularFireList } from "angularfire2/database";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Usuario } from "../../../domain/usuario/usuario";
+import { Motorista } from "../../../domain/usuario/condutor";
 import { MotoristaFormService } from "../../../provider/dao/motorista-service";
 import { FormService } from "../../../domain/form/form-service";
 
@@ -16,7 +16,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 })
 export class FormMotorista 
 {
-    // public motorista: AngularFireList<Usuario>;
+    // public motorista: AngularFireList<Motorista>;
     public informacoesUsuario: any;
 
     constructor(
@@ -51,7 +51,7 @@ export class FormMotorista
                 let y = element.payload.toJSON();
                 // y['key'] = element.key;
                 y['idade'] = this.formService.getIdade(y['nascimento']);
-                usuario.push(y as Usuario);
+                usuario.push(y as Motorista);
             });
         });
     }

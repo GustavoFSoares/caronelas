@@ -8,6 +8,7 @@ import { CaronaService } from "../../../provider/dao/caronas-service";
 
 import { MapsPage } from "../../maps/maps";
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
+import { Motorista } from '../../../domain/usuario/condutor';
 @IonicPage()
 @Component({
     selector: 'page-cadastro-carona',
@@ -15,7 +16,7 @@ import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 })
 export class CadastroCaronaPage {
 
-    public usuario: Usuario;
+    public usuario: Motorista;
     public carona: Carona = new Carona();
     public trajeto: Trajeto = new Trajeto();
 

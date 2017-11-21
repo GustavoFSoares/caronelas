@@ -3,12 +3,12 @@ import { Injectable } from "@angular/core";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from "angularfire2/auth";
 
-import { Usuario } from "../../domain/usuario/usuario";
+import { Motorista } from "../../domain/usuario/condutor";
 
 @Injectable()
 export class MotoristaFormService {
     public usuario: AngularFireList<any>;
-    public motorista: Usuario = new Usuario();
+    public motorista: Motorista = new Motorista();
 
     constructor(
         private _db: AngularFireDatabase,
@@ -42,7 +42,7 @@ export class MotoristaFormService {
         this.usuario.remove(key);
     }
 
-    getColunas(motorista: Usuario){
+    getColunas(motorista: Motorista){
         let colunas = {
             nome: motorista.nome,
             telefone: motorista.telefone,
