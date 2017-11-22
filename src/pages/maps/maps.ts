@@ -10,9 +10,11 @@ declare var google: any;
 export class MapsPage {
 
     @ViewChild('map') mapRef:ElementRef;
+    public posicao: object;
 
     constructor(public navParams: NavParams, private _viewCtrl: ViewController) {
         // console.log(navigator.geolocation);
+
      }
 
     ngOnInit() {
@@ -24,10 +26,9 @@ export class MapsPage {
     }
 
     mostrarMapa(){
-        const location = new google.maps.LatLng('-29.8355189', '-51.1241391');
+        // const location = new google.maps.LatLng('-29.8355189', '-51.1241391');
 
         const options = {
-            center:location,
             zoom:17,
             streetViewControl:false,
             mapTypeId:'roadmap',
@@ -35,7 +36,35 @@ export class MapsPage {
 
         const map = new google.maps.Map(this.mapRef.nativeElement, options);
 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: 'Hello World!'
+                });
+                
+                google.maps.event.addListener(map, 'click', event => {
+                    placeMarker(event.latLng);
+                    pos.lat = event.latLng.lat();
+                    pos.lng = event.latLng.lng();
+                    
+                    this.posicao = pos;
+                 });
+                
+                 function placeMarker(location) {
+                    marker.setPosition(location);
+                 }
+                map.setCenter(pos);
+            });
+        }
         this.adicionarMarcador(location, map);
+        
     }
 
     adicionarMarcador(position, map){
@@ -43,11 +72,11 @@ export class MapsPage {
             position, 
             map
         });
+        
     }
 
     salvarLocal(){
-        let local = { lat: '-29.8355189', lon: '-51.1241391' };
-        this.fecharModal(local, true);
+        this.fecharModal(this.posicao, true);
     }
 
     getPosicao(){
