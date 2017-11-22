@@ -7,6 +7,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Motorista } from "../../../domain/usuario/condutor";
 import { MotoristaFormService } from "../../../provider/dao/motorista-service";
 import { FormService } from "../../../domain/form/form-service";
+import { AuthService } from "../../../provider/auth/auth.service";
 
 import { ListagemCaronasPage } from "../../listagem-caronas/listagem-caronas";
 @IonicPage()
@@ -25,6 +26,7 @@ export class FormMotorista
         public formService: FormService,
         private _angularFireAuth: AngularFireAuth,
         private _motoristaService: MotoristaFormService,
+        private _authService: AuthService,
     ) {
         this._motoristaService.motorista.tipo = "motorista";
         this.informacoesUsuario = this.navParams.get('informacoesUsuario');
@@ -41,6 +43,7 @@ export class FormMotorista
             }
         });
         
+        alert(this.usuarioExistente());
     }
 
     ngOnInit() {
@@ -62,5 +65,10 @@ export class FormMotorista
     
         this._motoristaService.save(this._motoristaService.motorista);
         this.navCtrl.setRoot(ListagemCaronasPage, { usuario: this._motoristaService.motorista});
+    }
+
+    usuarioExistente(){
+        let logado = this._authService.verificaUsuarioExistente("motorista", this._motoristaService.motorista.key);
+        return JSON.stringify(logado);
     }
 }

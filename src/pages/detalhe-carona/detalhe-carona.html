@@ -11,7 +11,7 @@
                 <tr>
                     <td>
                         <ion-avatar item-start="">
-                            <img id="foto" src="https://hypescience.com/wp-content/uploads/2014/10/animais-fofos-que-podem-te-matar-1.jpg">
+                            <img id="foto" [src]=carona.motorista.foto>
                         </ion-avatar>
                     </td>
                     <td>
@@ -49,5 +49,36 @@
     <button (click)="solicitarCarona()" *ngIf="usuario.tipo == 'caroneira'" ion-button full color="secondary" id="bt_solicitar">                    
             Solicitar
     </button>
+    
+    <ion-card *ngIf="usuario.tipo == 'motorista'">
+        <ion-card-content>
+            <ion-item-divider color='light'>
+                <ion-icon ios="ios-person-add" md="md-person-add" item-left></ion-icon>
+                Caroneiras nesta Corrida
+            </ion-item-divider>
+
+            <ion-list >
+                <ion-item *ngFor="let caroneira of caroneiras" class="item item-block item-ios">
+                    <ion-avatar item-start="">
+                        <img class="caroneira caroneira-foto" [src]="caroneira.foto">
+                    </ion-avatar>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 class="caroneira" id="caroneira-nome" name="nome">{{carona.caroneiras[0].nome}}</h2>
+                            </td>
+                        </tr>
+            
+                        <tr>
+                            <td>
+                                <h2 class="caroneira" id="caroneira-idade">{{caroneira.idade}} anos de idade</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>        
+    </ion-card>
+    
 
 </ion-content>

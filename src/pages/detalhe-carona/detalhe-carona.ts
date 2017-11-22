@@ -17,6 +17,7 @@ export class DetalheCaronaPage {
 
     public usuario;
     public carona: Carona;
+    public caroneiras;
 
     constructor(
         public navCtrl: NavController,
@@ -27,6 +28,9 @@ export class DetalheCaronaPage {
     ) { 
         this.usuario = this.navParams.get('usuario');
         this.carona = this.navParams.get('carona');
+        this.caroneiras = this.formService.conversorObjetoParaArray(this.carona.caroneiras);
+        
+        console.log(this.caroneiras);
         
         this.verificaLotacao();        
         

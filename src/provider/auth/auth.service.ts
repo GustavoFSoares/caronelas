@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase/app";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs'; 
@@ -16,6 +17,7 @@ export class AuthService {
         private _facebook: Facebook,
         private _angularFireAuth: AngularFireAuth,
         private _http: Http,
+        private _db: AngularFireDatabase,
     ){ 
         this._token = this.tokenDeAcesso;
     }
@@ -46,6 +48,13 @@ export class AuthService {
             res.getToken()
                 .then( (token) => token )
         });
+    }
+
+    verificaUsuarioExistente(tipoUsuario, udi){
+        return this._db.database
+            .ref("usuario")
+            .child(tipoUsuario)
+            .child(udi);
     }
 
 }

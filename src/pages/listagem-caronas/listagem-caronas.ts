@@ -26,12 +26,13 @@ export class ListagemCaronasPage
         private _caronaService: CaronaService,
         public formService: FormService,
     ) {
+        this.usuario = {
+            tipo: "motorista"
+        }
 
         if (this.usuario == undefined) {
             this.usuario = this.navParams.get('usuario');
-        }
-        console.log(this.usuario);
-        
+        }        
 
     }
 
