@@ -16,9 +16,18 @@ export class UsuarioMasculinoPage {
         private _authService: AuthService,
     ) { }
 
+    ngOnInit(){
+        setTimeout(() => {
+            this.sair();
+        }, 7000);
+    }
+
     click(){
-        console.log("clicou porra");
-        // this._authService.signOut();
+        this.sair();
+    }
+
+    sair(){
+        this._authService.signOut();
         this.navCtrl.setRoot(LoginPage);
     }
 

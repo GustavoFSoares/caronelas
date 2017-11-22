@@ -25,7 +25,7 @@ export class HomePage {
         
         if (this.informacoesPreCarregadas == undefined){
             this.informacoesPreCarregadas = {
-                gender: "female",
+                gender: "male",
                 username: "Fabricio Soares",
                 email: "fabricio10.fsoares123123@gmail.com",
                 picture: "http://artenopolis.com/assuntosuniversos/wp-content/uploads/2014/03/vector-gratis-descargar-el-programador-L-2.jpeg",

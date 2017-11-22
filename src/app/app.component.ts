@@ -8,7 +8,7 @@ import { AuthService } from "../provider/auth/auth.service";
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login/login";
 import { HomePage } from "../pages/home/home";
-
+import { ListagemCaronasPage } from "../pages/listagem-caronas/listagem-caronas";
 @Component({
     templateUrl: 'app.html'
 })
@@ -24,7 +24,8 @@ export class MyApp {
 
     public paginas = [
         { titulo: "Login", componente: LoginPage },
-        { titulo: "HomePage", componente: HomePage }
+        { titulo: "Tela Inicial", componente: HomePage },
+        { titulo: "Listage de Caronas", componente: ListagemCaronasPage },
     ];
     
     constructor(
@@ -40,7 +41,7 @@ export class MyApp {
     }
 
     abrePagina(pagina) {
-        this.nav.push(pagina.componente)
+        this.nav.setRoot(pagina.componente)
     }
 
     sair(){
