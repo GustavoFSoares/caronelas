@@ -43,7 +43,6 @@ export class FormMotorista
             }
         });
         
-        alert(this.usuarioExistente());
     }
 
     ngOnInit() {
@@ -67,8 +66,4 @@ export class FormMotorista
         this.navCtrl.setRoot(ListagemCaronasPage, { usuario: this._motoristaService.motorista});
     }
 
-    usuarioExistente(){
-        let logado = this._authService.verificaUsuarioExistente("motorista", this._motoristaService.motorista.key);
-        return JSON.stringify(logado);
-    }
 }

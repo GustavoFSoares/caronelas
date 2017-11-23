@@ -26,7 +26,13 @@ export class MapsPage {
     }
 
     mostrarMapa(){
-        // const location = new google.maps.LatLng('-29.8355189', '-51.1241391');
+
+        navigator.geolocation.getCurrentPosition(position => {
+            this.posicao = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            }
+        });
 
         const options = {
             zoom:17,
@@ -79,8 +85,4 @@ export class MapsPage {
         this.fecharModal(this.posicao, true);
     }
 
-    getPosicao(){
-        console.log(navigator.geolocation);
-        
-    }
 }

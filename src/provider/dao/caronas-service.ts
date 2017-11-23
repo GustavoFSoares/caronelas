@@ -21,9 +21,9 @@ export class CaronaService {
     }
 
     save(carona) {
-        console.log('ruim');
-        
         this.carona = carona;
+        console.log(carona);
+        
         if (this.carona.caroneiras == undefined){
             this.carona.caroneiras = null;
         }
