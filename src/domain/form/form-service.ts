@@ -13,7 +13,7 @@ export class FormService {
         this.headers.append('Content-Type', 'application/json');
     }
 
-    timestampToDate(timestamp = 1508201805){
+    timestampToDate(timestamp){
         let date = new Date(timestamp*1000);
         return date.toLocaleDateString("pt-BR");
     }

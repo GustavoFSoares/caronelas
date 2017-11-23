@@ -19,6 +19,8 @@ export class DetalheCaronaPage {
     public carona: Carona;
     public caroneiras;
 
+    public quantidade;
+
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -30,7 +32,11 @@ export class DetalheCaronaPage {
         this.carona = this.navParams.get('carona');
         this.caroneiras = this.formService.conversorObjetoParaArray(this.carona.caroneiras);
         
-        console.log(this.caroneiras);
+        if (this.carona.ocupacao){
+            this.quantidade = this.carona.ocupacao;
+        } else {
+            this.quantidade = 0;
+        }
         
         this.verificaLotacao();        
         

@@ -20,6 +20,8 @@ export class ListagemCaronasPage
 {
     public caronas: Carona[] = [];
     public usuario;
+    public data;
+
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -29,8 +31,16 @@ export class ListagemCaronasPage
 
         if (this.usuario == undefined) {
             this.usuario = this.navParams.get('usuario');
-        }        
+        }
+        
+        let dia = this._caronaService.carona.trajeto.dia_saida.getDay().toString();
+        let mes = this._caronaService.carona.trajeto.dia_saida.getMonth().toString();
+        let ano = this._caronaService.carona.trajeto.dia_saida.getFullYear().toString();
 
+        let hora = this._caronaService.carona.trajeto.hora_saida.getHours().toString();
+        let minuto = this._caronaService.carona.trajeto.hora_saida.getMinutes().toString();
+        
+        this.data = dia +"/"+ mes +"/"+ ano + " - " + hora + ":" + minuto;
     }
 
     ngOnInit() 
